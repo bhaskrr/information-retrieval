@@ -24,9 +24,12 @@ A standard IR system follows a specific flow to move from raw data to a ranked l
 
 ## Information Retrieval vs Data Retrieval
 
-|Feature|Data Retrieval (Database)|Information Retrieval (Search)|
+|Feature|Information Retrieval (Search)|Data Retrieval (Database)|
 |-----|----|---|
-|Data|Structured (Tables/Schema)|Unstructured (Text/Web)|
-|Matching|Exact Match (SQL)|Partial Match / Similarity|
-|Model|Deterministic|Probabilistic|
-|Goal|Find all items matching logic|Rank items by relevance|
+|Scope|The software program that deals with the organization, storage, retrieval and evaluation of information from document repositories particularly textual information.|Data retrieval deals with obtaining data from a database management system such as ODBMS. It is A process of identifying and retrieving the data from the database based on the query provided by user or application.|
+|Retrieval|Retrieves information about a subject.|Determines the keywords in the user query and retrieves the data.|
+|Error Tolerance|Small errors are likely to go unnoticed.|A single error object means total failure.|
+|Data|Not always well structured and is semantically ambiguous.|Has a well-defined structure and semantics.|
+|Matching|The results obtained are approximate matches.|The results obtained are exact matches.|
+|Relevance|Results are ordered by relevance.|Results are unordered by relevance.|
+|Model|It is a probabilistic model.|It is a deterministic model.|
