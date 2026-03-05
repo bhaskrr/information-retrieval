@@ -24,3 +24,22 @@ The Information Retrieval (IR) model can be broken down into key components that
 ### Interaction Between User & System
 
 The user reviews the retrieved results and may provide feedback to refine the search. The system then processes the updated query and retrieves better results.
+
+## Classification of IR Models
+
+Information Retrieval models can be classified into the following categories:
+
+1. **Set-Theoritic Models**
+   1. Fuzzy Set model
+   2. Boolean Model
+   3. Extended-Boolean Model
+2. **Algebric Models**
+   1. Vector Space Model
+   2. Generalized Vector Space Model
+   3. Latent Sematic Analysis(LSA)
+   4. Support Vector Machines
+   5. Neural Networks
+3. **Probabilistic Models**
+   1. Best Match Models
+   2. Language Models
+   3. Bayesian Networks
