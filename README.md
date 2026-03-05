@@ -29,7 +29,7 @@ information-retrieval/
 
 ### Foundations
 
-- [ ] What is Information Retrieval?
+- [x] What is Information Retrieval?
 - [ ] The Boolean Retrieval Model
 - [ ] Inverted Index - construction & querying
 - [ ] **Mini project**: Build an inverted index from scratch
