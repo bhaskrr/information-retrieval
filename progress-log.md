@@ -4,3 +4,4 @@
 | ---------- | ------------ | --------- |
 | 04/03/2026 | Basics of IR | basics/01 |
 | 05/03/2026 | Basics of IR | basics/02 |
+| 06/03/2026 | Basics of IR | basics/02 |
