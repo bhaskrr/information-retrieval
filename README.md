@@ -19,8 +19,11 @@ information-retrieval/
 │
 ├── README.md                        ← You are here
 ├── glossary.md                      ← Key terms & definitions
+├── code/
+|   ├── notebooks/ 
 ├── notes/
-    ├── 01-basics/
+│   ├── 01-basics/
+│   ├── 02-text-processing/
 ```
 
 ---
