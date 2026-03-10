@@ -21,6 +21,8 @@ Without tokenization, tasks like search, indexing, ranking, text classification,
     - [5.5 URLs](#55-urls)
     - [5.6 Numbers](#56-numbers)
   - [6. Tokenization Rules in IR Systems](#6-tokenization-rules-in-ir-systems)
+  - [7. Good Tokenization Practices](#7-good-tokenization-practices)
+  - [8 Limitations of Tokenization](#8-limitations-of-tokenization)
 
 ## 1. What is Tokenization?
 
@@ -314,7 +316,7 @@ IR systems often apply rules like:
 
     Example:
 
-    2025 → <25>
+    2025 --> <25> or |NUM|
 
 4. **Special Token Handling**
 
@@ -324,3 +326,26 @@ IR systems often apply rules like:
     - URLs
     - hashtags
     - mentions
+
+## 7. Good Tokenization Practices
+
+Best practices:
+
+- Always convert to lowercase
+- Remove unnecessary punctuation
+- Handle URLs and emails carefully
+- Keep numbers meaningful
+- Avoid overly aggressive splitting
+
+## 8 Limitations of Tokenization
+
+Tokenization alone cannot handle:
+
+- synonyms
+- spelling variations
+- semantics
+- context
+
+Example:
+
+**car** and **automobile** both refer to the same concept but tokenization does not capture this.
