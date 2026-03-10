@@ -12,6 +12,13 @@ Without tokenization, tasks like search, indexing, ranking, text classification,
     - [4.2 Sentence Tokenization](#42-sentence-tokenization)
     - [4.3 Character Tokenization](#43-character-tokenization)
     - [4.4 Subword Tokenization](#44-subword-tokenization)
+  - [5. Tokenization Challenges in IR](#5-tokenization-challenges-in-ir)
+    - [5.1 Punctuation](#51-punctuation)
+    - [5.2 Contractions](#52-contractions)
+    - [5.3 Hyphenated Words](#53-hyphenated-words)
+    - [5.4 Email Addresses](#54-email-addresses)
+    - [5.5 URLs](#55-urls)
+    - [5.6 Numbers](#56-numbers)
 
 ## 1. What is Tokenization?
 
@@ -178,3 +185,107 @@ Used in **models** like:
 - BERT
 - GPT
 - T5
+
+## 5. Tokenization Challenges in IR
+
+Tokenization may seem simple but has many edge cases.
+
+### 5.1 Punctuation
+
+Example:
+
+```bash
+Hello, world!
+```
+
+Possible tokens:
+
+```bash
+["hello", "world"]
+```
+
+But naive tokenization might produce:
+
+```bash
+["hello,", "world!"]
+```
+
+### 5.2 Contractions
+
+Example:
+
+```bash
+don't
+```
+
+Possible tokenizations:
+
+```bash
+["do", "not"]
+```
+
+or
+
+```bash
+["don't"]
+```
+
+### 5.3 Hyphenated Words
+
+Example:
+
+```bash
+state-of-the-art
+```
+
+Possible tokens:
+
+```bash
+["state", "of", "the", "art"]
+```
+
+or
+
+```bash
+["state-of-the-art"]
+```
+
+### 5.4 Email Addresses
+
+Example:
+
+```bash
+support@example.com
+```
+
+Should ideally stay as one token.
+
+### 5.5 URLs
+
+Example:
+
+```bash
+https://example.com
+```
+
+Usually treated as single tokens.
+
+### 5.6 Numbers
+
+Example:
+
+```bash
+Price is $100.50
+```
+
+Tokenization options:
+
+```bash
+["price", "is", "100.50"]
+```
+
+or
+
+```bash
+["price", "is", "$", "100.50"]
+```
