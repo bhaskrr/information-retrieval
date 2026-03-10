@@ -7,6 +7,7 @@ Without tokenization, tasks like search, indexing, ranking, text classification,
 - [Tokenization in Information Retrieval](#tokenization-in-information-retrieval)
   - [1. What is Tokenization?](#1-what-is-tokenization)
   - [2. Why Tokenization is Important in IR](#2-why-tokenization-is-important-in-ir)
+  - [3. Tokenization in an IR Pipeline](#3-tokenization-in-an-ir-pipeline)
   - [4. Types of Tokenization](#4-types-of-tokenization)
     - [4.1 Word Tokenization](#41-word-tokenization)
     - [4.2 Sentence Tokenization](#42-sentence-tokenization)
@@ -19,6 +20,7 @@ Without tokenization, tasks like search, indexing, ranking, text classification,
     - [5.4 Email Addresses](#54-email-addresses)
     - [5.5 URLs](#55-urls)
     - [5.6 Numbers](#56-numbers)
+  - [6. Tokenization Rules in IR Systems](#6-tokenization-rules-in-ir-systems)
 
 ## 1. What is Tokenization?
 
@@ -50,19 +52,19 @@ Information Retrieval systems (such as search engines) depend on tokenization to
 
     ```bash
     Document:
-     "Machine learning improves search systems"
+    "Machine learning improves search systems"
 
     Tokens:
-     ["machine", "learning", "improves", "search", "systems"]
+    ["machine", "learning", "improves", "search", "systems"]
     ```
 
 2. **Process Queries**:
 
-   ```bash
-   User query:
+    ```bash
+    User query:
     "machine learning"
 
-   Tokens:
+    Tokens:
     ["machine", "learning"]
     ```
 
@@ -289,3 +291,36 @@ or
 ```bash
 ["price", "is", "$", "100.50"]
 ```
+
+## 6. Tokenization Rules in IR Systems
+
+IR systems often apply rules like:
+
+1. **Case Folding**
+
+    Convert to lowercase.
+
+    ```bash
+    Apple → apple
+    ```
+
+2. **Remove Punctuation**
+
+    ```bash
+    "hello!" → "hello"
+    ```
+
+3. **Normalize Numbers**
+
+    Example:
+
+    2025 → <25>
+
+4. **Special Token Handling**
+
+    Keep certain patterns intact:
+
+    - emails
+    - URLs
+    - hashtags
+    - mentions
