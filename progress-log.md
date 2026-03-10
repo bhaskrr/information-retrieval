@@ -8,3 +8,4 @@
 | 07/03/2026 | Basics of IR    | basics/03          |
 | 08/03/2026 | Basics of IR    | basics/03          |
 | 09/03/2026 | Text Processing | text-processing/01 |
+| 10/03/2026 | Text Processing | text-processing/01 |
