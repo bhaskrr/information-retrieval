@@ -7,6 +7,11 @@ Without tokenization, tasks like search, indexing, ranking, text classification,
 - [Tokenization in Information Retrieval](#tokenization-in-information-retrieval)
   - [1. What is Tokenization?](#1-what-is-tokenization)
   - [2. Why Tokenization is Important in IR](#2-why-tokenization-is-important-in-ir)
+  - [4. Types of Tokenization](#4-types-of-tokenization)
+    - [4.1 Word Tokenization](#41-word-tokenization)
+    - [4.2 Sentence Tokenization](#42-sentence-tokenization)
+    - [4.3 Character Tokenization](#43-character-tokenization)
+    - [4.4 Subword Tokenization](#44-subword-tokenization)
 
 ## 1. What is Tokenization?
 
@@ -76,3 +81,100 @@ flowchart LR
 ```
 
 Tokenization must happen before almost every other text processing step.
+
+## 4. Types of Tokenization
+
+### 4.1 Word Tokenization
+
+The most common approach. Split text based on spaces and punctuation.
+
+Example:
+
+```bash
+Text:
+"IR systems are powerful."
+
+Tokens:
+["IR", "systems", "are", "powerful"]```
+```
+
+Python example:
+
+```python
+text = "IR systems are powerful"
+tokens = text.split()
+```
+
+### 4.2 Sentence Tokenization
+
+Splitting text into sentences.
+
+Example:
+
+```bash
+Text:
+"IR is useful. Search engines rely on it."
+
+Tokens:
+[
+"IR is useful.",
+"Search engines rely on it."
+]
+```
+
+Used in:
+
+- Summarization
+- QA systems
+- Document processing
+
+### 4.3 Character Tokenization
+
+Splitting into individual characters.
+
+Example:
+
+```bash
+Text:
+"IR"
+
+Tokens:
+["I", "R"]
+```
+
+Used in:
+
+- Character-level language models
+- Spelling correction
+
+### 4.4 Subword Tokenization
+
+Modern NLP models use subword tokens to handle unknown words.
+
+Example:
+
+```bash
+Word:
+unhappiness
+
+Tokens:
+["un", "happi", "ness"]
+```
+
+**Advantages**:
+
+1. Handles rare words
+2. Reduces vocabulary size
+3. Improves generalization
+
+**Common algorithms**:
+
+- Byte Pair Encoding (BPE)
+- WordPiece
+- SentencePiece
+
+Used in **models** like:
+
+- BERT
+- GPT
+- T5
