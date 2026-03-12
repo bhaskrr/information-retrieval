@@ -30,12 +30,18 @@ information-retrieval/
 
 ## Learning Roadmap
 
-### Foundations
+### Phase 1 - Basics
 
-- [x] What is Information Retrieval?
-- [ ] The Boolean Retrieval Model
-- [ ] Inverted Index - construction & querying
-- [ ] **Mini project**: Build an inverted index from scratch
+- What is Information Retrieval?
+- IR Taxonomy — the map of all IR techniques
+- Boolean Retrieval Model
+
+### Phase 2 - Text Processing
+
+- Tokenization
+- Normalization
+- Stopword Removal
+- Stemming and Lemmatization
 
 ---
 
