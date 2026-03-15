@@ -12,4 +12,5 @@
 | 11/03/2026 | Text Processing | notebooks/02/tokenization |
 | 12/03/2026 | Text Processing | text-processing/02        |
 | 13/03/2026 | Text Processing | text-processing/03        |
-|14/03/2026  | Text Processing | text-processing/04        |
+| 14/03/2026 | Text Processing | text-processing/04        |
+| 15/03/2026 | Indexing        | indexing/01               |
