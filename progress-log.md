@@ -14,3 +14,4 @@
 | 13/03/2026 | Text Processing | text-processing/03        |
 | 14/03/2026 | Text Processing | text-processing/04        |
 | 15/03/2026 | Indexing        | indexing/01               |
+| 16/03/2026 | Indexing        | indexing/02 and 03        |
