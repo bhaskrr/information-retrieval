@@ -122,25 +122,17 @@ corpus
 
 ## Strengths
 
-Full ranking — every document gets a continuous score; no feast or famine
-Partial matching — documents matching some but not all query terms are still
-retrieved and ranked
-Simple and interpretable — the geometric intuition is clean and the math is
-straightforward
-Flexible weighting — any term weighting scheme can be plugged in
-Foundation — VSM is the conceptual basis for modern dense retrieval; neural
-models replace sparse TF-IDF vectors with dense learned embeddings but the
-geometric similarity idea is identical
+- **Full ranking**: Every document gets a continuous score; no feast or famine.
+- **Partial matching**: Documents matching some but not all query terms are still retrieved and ranked.
+- **Simple and interpretable**: The geometric intuition is clean and the math is straightforward.
+- **Flexible weighting**: Any term weighting scheme can be plugged in.
+- **Foundation**: VSM is the conceptual basis for modern dense retrieval; neural models replace sparse TF-IDF vectors with dense learned embeddings but the geometric similarity idea is identical.
 
 ## Weaknesses
 
-Term independence assumption — each term is an independent dimension; the model
-has no notion that "python" and "programming" are related
-No semantics — "car" and "automobile" are orthogonal vectors; zero similarity
-even though they mean the same thing
-High dimensionality — vocabulary size can be 100k+; vectors are huge and sparse
-Term frequency saturation — raw TF does not saturate; BM25 fixes this
-No length normalization by default — cosine partially addresses this but not
-perfectly; BM25 handles it more explicitly
-Query-document asymmetry — short queries produce sparse query vectors; a single
-term query has a very imprecise direction in term space
+- **Term independence assumption**: Each term is an independent dimension; the model has no notion that "python" and "programming" are related.
+- **No semantics**: "car" and "automobile" are orthogonal vectors; zero similarity even though they mean the same thing
+- **High dimensionality**: vocabulary size can be 100k+; vectors are huge and sparse.
+- **Term frequency saturation**: Raw TF does not saturate; BM25 fixes this.
+- **No length normalization by default**: Cosine partially addresses this but not perfectly; BM25 handles it more explicitly
+- **Query-document asymmetry**: Short queries produce sparse query vectors; a single term query has a very imprecise direction in term space.
