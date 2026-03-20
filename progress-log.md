@@ -17,3 +17,4 @@
 | 16/03/2026 | Indexing        | indexing/02 and 03        |
 | 17/03/2026 | Extended Boolean| ranking-models/01         |
 | 18/03/2026 | Vector Space Model| ranking-models/02       |
+| 20/03/2026 | TF-IDF          | ranking-models/03         |
