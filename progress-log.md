@@ -15,3 +15,5 @@
 | 14/03/2026 | Text Processing | text-processing/04        |
 | 15/03/2026 | Indexing        | indexing/01               |
 | 16/03/2026 | Indexing        | indexing/02 and 03        |
+| 17/03/2026 | Extended Boolean| ranking-models/01         |
+| 18/03/2026 | Vector Space Model| ranking-models/02       |
