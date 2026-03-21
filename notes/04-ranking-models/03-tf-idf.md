@@ -70,12 +70,13 @@ TF-IDF(t, d) = TF(t, d) × IDF(t)
 ```
 
 High TF-IDF -> term is frequent in this document AND rare in the corpus.  
-Low TF-IDF  -> term is either rare in this document OR common everywhere.
+Low TF-IDF -> term is either rare in this document OR common everywhere.
 
 ## Worked Example
 
 Corpus of 4 documents:
-```
+
+```bash
 D1: "python search index python"
 D2: "python tutorial beginners"
 D3: "search engine design"
@@ -86,7 +87,7 @@ N = 4
 
 Computing TF-IDF for "python" in D1:
 
-```
+```bash
 count("python", D1) = 2
 total terms in D1   = 4
 TF("python", D1)    = 2/4 = 0.5
@@ -99,7 +100,7 @@ TF-IDF("python", D1) = 0.5 × 0.693 = 0.347
 
 Computing TF-IDF for "cooking" in D4:
 
-```
+```bash
 count("cooking", D4) = 1
 TF("cooking", D4)    = 1/3 = 0.333
 
@@ -116,23 +117,23 @@ it is more discriminative.
 
 Different combinations of TF and IDF normalization encoded as three letters (TF.IDF.norm):
 
-| TF variant        | Formula                               |
-|-------------------|---------------------------------------|
-| n (natural)       | tf                                    |
-| l (logarithm)     | 1 + log(tf) if tf > 0, else 0        |
-| a (augmented)     | 0.5 + 0.5 × tf / max_tf              |
-| b (boolean)       | 1 if tf > 0, else 0                  |
+| TF variant    | Formula                       |
+| ------------- | ----------------------------- |
+| n (natural)   | tf                            |
+| l (logarithm) | 1 + log(tf) if tf > 0, else 0 |
+| a (augmented) | 0.5 + 0.5 × tf / max_tf       |
+| b (boolean)   | 1 if tf > 0, else 0           |
 
-| IDF variant       | Formula                               |
-|-------------------|---------------------------------------|
-| n (none)          | 1                                     |
-| t (standard)      | log(N / df)                           |
-| p (probabilistic) | log((N - df) / df)                    |
+| IDF variant       | Formula            |
+| ----------------- | ------------------ |
+| n (none)          | 1                  |
+| t (standard)      | log(N / df)        |
+| p (probabilistic) | log((N - df) / df) |
 
-| Normalization     | Formula                               |
-|-------------------|---------------------------------------|
-| n (none)          | 1                                     |
-| c (cosine)        | divide by L2 norm of vector           |
+| Normalization | Formula                     |
+| ------------- | --------------------------- |
+| n (none)      | 1                           |
+| c (cosine)    | divide by L2 norm of vector |
 
 ## Strengths
 
@@ -154,14 +155,14 @@ TF-IDF has two concrete problems that BM25 directly fixes:
 
 **Problem 1 — TF grows without bound**
 
-```
+```bash
 TF-IDF: weight ∝ raw term count -> unbounded growth
 BM25:   weight saturates via tf / (tf + k₁) -> bounded
 ```
 
 **Problem 2 — No explicit length normalization**
 
-```
+```bash
 TF-IDF: cosine similarity partially compensates
 BM25:   explicit parameter b compares doc length to average doc length
 ```
