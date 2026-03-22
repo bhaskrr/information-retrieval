@@ -19,3 +19,4 @@
 | 18/03/2026 | Vector Space Model| ranking-models/02       |
 | 20/03/2026 | TF-IDF          | ranking-models/03         |
 | 21/03/2026 | BM25            | ranking-models/04         |
+| 22/03/2026 | Evaluation      | evaluation/01             |
