@@ -20,3 +20,4 @@
 | 20/03/2026 | TF-IDF          | ranking-models/03         |
 | 21/03/2026 | BM25            | ranking-models/04         |
 | 22/03/2026 | Evaluation      | evaluation/01             |
+| 23/03/2026 | Evaluation      | evaluation/03             |
