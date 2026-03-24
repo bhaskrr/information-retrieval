@@ -24,7 +24,7 @@ but misses many (low recall). This tension is the precision-recall tradeoff.
 
 For a single query, every document in the corpus falls into one of four categories:
 
-```
+```bash
                         Retrieved       Not Retrieved
                    ┌───────────────┬───────────────┐
       Relevant     │      TP        │      FN       │
@@ -42,7 +42,7 @@ For a single query, every document in the corpus falls into one of four categori
 
 Of everything retrieved, what fraction is relevant?
 
-```
+```bash
 Precision = TP / (TP + FP) = TP / |Retrieved|
 ```
 
@@ -52,7 +52,7 @@ Range: 0 (nothing retrieved is relevant) to 1 (everything retrieved is relevant)
 
 Of everything relevant, what fraction was retrieved?
 
-```
+```bash
 Recall = TP / (TP + FN) = TP / |Relevant|
 ```
 
@@ -65,7 +65,7 @@ Relevant documents for query q: {D1, D3, D5, D7, D9} → 5 relevant docs
 
 System retrieves: {D1, D2, D3, D4, D5}
 
-```
+```bash
 TP = {D1, D3, D5}          (retrieved AND relevant)
 FP = {D2, D4}              (retrieved but NOT relevant)
 FN = {D7, D9}              (relevant but NOT retrieved)
@@ -76,7 +76,7 @@ Recall    = 3 / 5 = 0.60
 
 Now the system retrieves: {D1, D3, D5, D7, D9, D10}
 
-```
+```bash
 TP = {D1, D3, D5, D7, D9}
 FP = {D10}
 FN = {}
@@ -87,7 +87,7 @@ Recall    = 5 / 5 = 1.000
 
 Now the system retrieves all 10 documents:
 
-```
+```bash
 TP = {D1, D3, D5, D7, D9}
 FP = {D2, D4, D6, D8, D10}
 
@@ -107,7 +107,7 @@ Precision and recall pull in opposite directions:
 
 Different tasks sit at different points on this curve:
 
-```
+```bash
 Task                    Priority
 ─────────────────────────────────────────────────
 Web search              Precision — top results must be good
@@ -122,7 +122,7 @@ Recommendation          Precision — irrelevant recommendations annoy users
 As you move down a ranked list, precision and recall both change. Plotting precision
 against recall at each rank position gives the precision-recall curve.
 
-```
+```bash
 Ranked list: D1(rel), D2(not), D3(rel), D4(not), D5(rel)
 Relevant docs in corpus: {D1, D3, D5}
 
@@ -144,7 +144,7 @@ Standard precision and recall treat retrieval as an unordered set. A system that
 ranks relevant documents first scores identically to one that ranks them last —
 as long as the same set of documents is retrieved.
 
-```
+```bash
 System A: [D1(rel), D3(rel), D2(not), D4(not)]
 System B: [D2(not), D4(not), D1(rel), D3(rel)]
 
@@ -160,8 +160,7 @@ corpus. At web scale this is essentially unknowable.
 
 ### 3. Treats all relevant documents equally
 
-A highly relevant document counts the same as a marginally relevant one. Graded
-metrics like NDCG address this.
+A highly relevant document counts the same as a marginally relevant one. Graded metrics like NDCG address this.
 
 ## My Summary
 
