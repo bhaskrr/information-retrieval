@@ -21,3 +21,4 @@
 | 21/03/2026 | BM25            | ranking-models/04         |
 | 22/03/2026 | Evaluation      | evaluation/01             |
 | 23/03/2026 | Evaluation      | evaluation/03             |
+| 24/03/2025 | Evaluation      | evaluation/04             |
