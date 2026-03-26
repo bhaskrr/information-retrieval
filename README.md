@@ -24,6 +24,8 @@ information-retrieval/
 ├── notes/
 │   ├── 01-basics/
 │   ├── 02-text-processing/
+|   ├── 03-indexing/
+|   ├── 04-ranking-models/
 ```
 
 ---
