@@ -23,7 +23,7 @@ score is 0.
 
 For a single query q:
 
-```
+```bash
 RR(q) = 1 / rank_first_relevant
 ```
 
@@ -32,7 +32,7 @@ the retrieved list. If no relevant document is retrieved, RR = 0.
 
 For a set of queries Q:
 
-```
+```bash
 MRR = (1 / |Q|) × Σ RR(qᵢ)
 ```
 
@@ -44,7 +44,7 @@ MRR is designed for tasks where:
 - The user only needs to find the first relevant result
 - Position of that result is the primary quality signal
 
-```
+```bash
 Task                            MRR appropriate?
 ──────────────────────────────────────────────────────
 Navigational web search         Yes — one correct homepage
@@ -73,7 +73,7 @@ Recommendation                  No — quality of full list matters
 In practice MRR is always computed with a rank cutoff K. If the first relevant
 document does not appear in the top K, RR = 0 for that query.
 
-```
+```bash
 MRR@10: only consider the top 10 results
 MRR@100: only consider the top 100 results
 ```
@@ -91,7 +91,7 @@ returns one relevant document at rank 1 and nothing else scores MRR=1.0 — iden
 to a system that returns relevant documents at every rank. For tasks with multiple
 relevant documents this is a serious blind spot.
 
-```
+```bash
 System A: [rel, rel, rel, rel, rel] → RR = 1.0
 System B: [rel, not, not, not, not] → RR = 1.0
 Both score the same despite System A being far more useful.
