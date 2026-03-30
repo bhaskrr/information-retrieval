@@ -26,6 +26,7 @@ information-retrieval/
 │   ├── 02-text-processing/
 |   ├── 03-indexing/
 |   ├── 04-ranking-models/
+|   ├── 05-evaluation/
 ```
 
 ---
