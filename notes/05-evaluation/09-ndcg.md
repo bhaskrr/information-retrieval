@@ -31,13 +31,13 @@ Two additional intuitions drive NDCG:
 
 Simply sum the relevance scores of retrieved documents:
 
-```
+```bash
 CG@K = Σ rel(i)   for i = 1 to K
 ```
 
 Where rel(i) is the relevance score of the document at rank i.
 
-```
+```bash
 Ranked list:  [rel=3, rel=0, rel=2, rel=1, rel=0]
 CG@5 = 3 + 0 + 2 + 1 + 0 = 6
 ```
@@ -49,13 +49,13 @@ same CG. A highly relevant document at rank 5 counts the same as one at rank 1.
 
 Apply a logarithmic discount that reduces the contribution of documents at lower ranks:
 
-```
+```bash
 DCG@K = Σ rel(i) / log₂(i + 1)   for i = 1 to K
 ```
 
 The discount at each rank:
 
-```
+```bash
 Rank 1:  log₂(2) = 1.000  → no discount
 Rank 2:  log₂(3) = 1.585  → divide by 1.585
 Rank 3:  log₂(4) = 2.000  → divide by 2
@@ -70,7 +70,7 @@ positions, consistent with how users scan results.
 
 Alternative DCG formula (used in some benchmarks, emphasizes highly relevant docs):
 
-```
+```bash
 DCG@K = Σ (2^rel(i) - 1) / log₂(i + 1)   for i = 1 to K
 ```
 
@@ -85,7 +85,7 @@ DCG scores are not comparable across queries — a query with 10 highly relevant
 documents will naturally have a higher DCG than one with 2 marginally relevant ones.
 Normalize by the Ideal DCG (IDCG) — the DCG achieved by a perfect ranking:
 
-```
+```bash
 NDCG@K = DCG@K / IDCG@K
 ```
 
@@ -98,7 +98,7 @@ Range: 0 (worst) to 1 (perfect ranking)
 
 Relevant documents and their grades for query q:
 
-```
+```bash
 D1: relevance = 3  (highly relevant)
 D3: relevance = 2  (relevant)
 D5: relevance = 1  (marginally relevant)
@@ -108,7 +108,7 @@ D9: relevance = 0  (not relevant)
 
 System ranked list:
 
-```
+```bash
 Rank 1:  D3  → rel = 2
 Rank 2:  D1  → rel = 3
 Rank 3:  D9  → rel = 0
@@ -118,7 +118,7 @@ Rank 5:  D7  → rel = 0
 
 ### DCG@5 (standard formula)
 
-```
+```bash
 DCG@5 = 2/log₂(2) + 3/log₂(3) + 0/log₂(4) + 1/log₂(5) + 0/log₂(6)
       = 2/1.000 + 3/1.585 + 0/2.000 + 1/2.322 + 0/2.585
       = 2.000 + 1.893 + 0.000 + 0.431 + 0.000
@@ -127,7 +127,7 @@ DCG@5 = 2/log₂(2) + 3/log₂(3) + 0/log₂(4) + 1/log₂(5) + 0/log₂(6)
 
 ### IDCG@5 — ideal ranking sorts by relevance descending
 
-```
+```bash
 Ideal rank 1: D1 → rel = 3
 Ideal rank 2: D3 → rel = 2
 Ideal rank 3: D5 → rel = 1
@@ -142,7 +142,7 @@ IDCG@5 = 3/log₂(2) + 2/log₂(3) + 1/log₂(4) + 0/log₂(5) + 0/log₂(6)
 
 ### NDCG@5
 
-```
+```bash
 NDCG@5 = DCG@5 / IDCG@5
        = 4.324 / 4.762
        = 0.908
@@ -153,7 +153,7 @@ rank 2 instead of rank 1, and for placing D5 (rel=1) at rank 4 instead of rank 3
 
 ### What if D1 were ranked first?
 
-```
+```bash
 Rank 1: D1 → rel = 3
 Rank 2: D3 → rel = 2
 Rank 3: D9 → rel = 0
@@ -173,7 +173,7 @@ Ranking the most relevant document first improves NDCG from 0.908 to 0.986.
 
 NDCG is almost always reported with a rank cutoff K:
 
-```
+```bash
 Context                         Typical K
 ──────────────────────────────────────────
 Web search                      NDCG@10
@@ -227,7 +227,7 @@ relative metric for comparing systems, not as an absolute quality indicator.
 
 Now that all metrics have been covered, here is how they relate:
 
-```
+```bash
 Metric          Relevance    Position    Multi-doc    Best for
 ──────────────────────────────────────────────────────────────────────────
 Precision       Binary       No          Yes          Simple set retrieval
@@ -241,7 +241,7 @@ NDCG            Graded       Yes         Yes          Modern IR, rankings
 
 ## Where This Fits in the Progression
 
-```
+```bash
 Precision & Recall  → unranked set metrics
 F-Measure           → single number combining both
 Precision@K         → precision at a fixed cutoff
