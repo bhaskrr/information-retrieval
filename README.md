@@ -27,6 +27,7 @@ information-retrieval/
 |   ├── 03-indexing/
 |   ├── 04-ranking-models/
 |   ├── 05-evaluation/
+|   ├── 06-neural-ir/
 ```
 
 ---
