@@ -27,3 +27,4 @@
 | 27/03/2026 | Evaluation      | evaluation/07             |
 | 28/03/2026 | Evaluation      | evaluation/08             |
 | 29/03/2026 | Evaluation      | evaluation/09             |
+| 30/03/2026 | Neural IR       | neural-ir/01              |
