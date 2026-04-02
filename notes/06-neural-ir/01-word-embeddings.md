@@ -27,7 +27,7 @@ the data.
 
 Classical IR:
 
-```
+```bash
 Vocabulary size: 50,000 terms
 Document vector: [0, 0, 0, 1, 0, 0, 2, 0, ..., 0]  ← 50,000 dimensions, mostly zeros
                                                          (sparse)
@@ -35,7 +35,7 @@ Document vector: [0, 0, 0, 1, 0, 0, 2, 0, ..., 0]  ← 50,000 dimensions, mostly
 
 Word embeddings:
 
-```
+```bash
 Embedding size: 300 dimensions
 Word vector:    [0.23, -0.41, 0.87, 0.12, ..., -0.33]  ← 300 dimensions, all nonzero
                                                             (dense)
@@ -61,14 +61,14 @@ The network is a means to an end — the learned weights become the word vectors
 
 **Skip-gram** — given a center word, predict surrounding context words:
 
-```
+```bash
 Input:  "search"
 Target: predict ["information", "engine", "query", "index"]
 ```
 
 **CBOW (Continuous Bag of Words)** — given context words, predict the center word:
 
-```
+```bash
 Input:  ["information", "engine", "query", "index"]
 Target: predict "search"
 ```
@@ -89,7 +89,7 @@ random noise. This makes training feasible at scale.
 
 Famous analogies emerge from the geometry:
 
-```
+```bash
 king - man + woman ≈ queen
 paris - france + italy ≈ rome
 walking - walk + swim ≈ swimming
@@ -111,7 +111,7 @@ appear within a window of each other in the corpus. Train embeddings such that
 the dot product of two word vectors approximates the log of their co-occurrence
 count:
 
-```
+```bash
 wᵢ · wⱼ + bᵢ + bⱼ ≈ log(C[i][j])
 ```
 
@@ -134,7 +134,7 @@ applications.
 Introduced by Bojanowski et al. at Facebook AI in 2017. Extends Word2Vec by
 representing each word as a sum of its character n-gram vectors.
 
-```
+```bash
 "search" → <se, sea, ear, arc, rch, ch>, <sea, ear, arc, rch>, ...
            each n-gram has its own vector → word vector = sum of n-gram vectors
 ```
@@ -156,7 +156,7 @@ specialized vocabulary (medical, legal, technical).
 
 ### Semantic similarity
 
-```
+```bash
 cosine_similarity("dog", "cat")    → high   (both are pets)
 cosine_similarity("dog", "car")    → low    (unrelated)
 cosine_similarity("king", "queen") → high   (similar roles)
@@ -166,7 +166,7 @@ cosine_similarity("king", "queen") → high   (similar roles)
 
 Linear offsets encode relationships:
 
-```
+```bash
 embedding("Rome") - embedding("Italy") ≈ embedding("Paris") - embedding("France")
 ```
 
@@ -187,7 +187,7 @@ Simple approaches:
 
 Average all word vectors in a document:
 
-```
+```bash
 doc_vector = mean([embedding(w) for w in document])
 ```
 
@@ -199,7 +199,7 @@ ability to distinguish "dog bites man" from "man bites dog".
 Weight each word vector by its TF-IDF score before averaging — rare, important
 words contribute more than common ones:
 
-```
+```bash
 doc_vector = Σ tfidf(w) × embedding(w) / Σ tfidf(w)
 ```
 
