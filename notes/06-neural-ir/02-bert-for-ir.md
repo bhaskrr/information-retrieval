@@ -32,7 +32,7 @@ Every token in a sequence attends to every other token. For each token, self-
 attention computes a weighted sum of all other token representations — the weights
 reflect how relevant each other token is to understanding the current one.
 
-```
+```bash
 Input: "the bank by the river"
 
 For token "bank":
@@ -50,7 +50,7 @@ ELMo) that read left-to-right or combined two unidirectional models, BERT's
 self-attention operates over the full sequence at once — left context and right
 context are both available when representing any token.
 
-```
+```bash
 "the [bank] by the river"
          ↑
 sees both "the" (left) and "by the river" (right) simultaneously
@@ -63,7 +63,7 @@ BERT is pretrained on two tasks using massive text corpora:
 **Masked Language Modeling (MLM)** — randomly mask 15% of tokens, train the
 model to predict the masked tokens from context:
 
-```
+```bash
 Input:  "information [MASK] is the task of finding relevant documents"
 Target: predict "retrieval"
 ```
@@ -77,7 +77,7 @@ downstream tasks with relatively little task-specific data.
 
 ## BERT Architecture Details
 
-```
+```bash
 Input:    [CLS] query or document tokens [SEP]
 Layers:   12 transformer encoder layers (BERT-base) or 24 (BERT-large)
 Hidden:   768 dimensions (base) or 1024 (large)
@@ -105,7 +105,7 @@ BERT enabled two major shifts:
 Fine-tune BERT on query-document pairs labeled for relevance. The model learns
 to assess relevance from rich contextual representations rather than term overlap.
 
-```
+```bash
 Input:  [CLS] query [SEP] document [SEP]
 Output: [CLS] representation → linear layer → relevance score
 ```
@@ -128,7 +128,7 @@ was the moment neural IR became the dominant research direction.
 
 Concatenate query and document as a single BERT input:
 
-```
+```bash
 [CLS] what is information retrieval [SEP] Information retrieval is the task
 of finding material that satisfies an information need [SEP]
 
@@ -148,7 +148,7 @@ from BM25), not for full corpus retrieval.
 
 Encode query and document separately with BERT, then compute similarity:
 
-```
+```bash
 query_vec    = BERT([CLS] query [SEP])              → 768-dim vector
 document_vec = BERT([CLS] document [SEP])           → 768-dim vector
 score        = cosine_similarity(query_vec, doc_vec)
@@ -181,7 +181,7 @@ This is the dense retrieval paradigm. Covered fully in 03-dense-retrieval.md and
 The combination of MS MARCO (large labeled dataset) + BERT (pretrained language
 model) in 2019 was the inflection point for neural IR:
 
-```
+```bash
 BM25 on MS MARCO Dev:           MRR@10 ≈ 0.184
 BERT cross-encoder reranking:   MRR@10 ≈ 0.365
 ```
@@ -218,7 +218,7 @@ LegalBERT, and CodeBERT address this.
 
 BERT sits at the center of the modern neural IR stack:
 
-```
+```bash
 User query
     ↓
 First-stage retrieval (BM25 or bi-encoder)
@@ -235,7 +235,7 @@ Understanding BERT is the prerequisite for understanding both stages.
 
 ## Where This Fits in the Progression
 
-```
+```bash
 Word Embeddings     → static dense vectors, no context
 BERT for IR         → contextual dense vectors  ← you are here
 Dense Retrieval     → using BERT for first-stage retrieval
