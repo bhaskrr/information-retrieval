@@ -27,7 +27,7 @@ in dense retrieval.
 
 ## The Dense Retrieval Pipeline
 
-```
+```bash
 Offline (index time):
     for each document d in corpus:
         doc_vector = encoder(d)         → 768-dim dense vector
@@ -55,7 +55,7 @@ Two common pooling strategies:
 
 Use the [CLS] token output as the sequence representation:
 
-```
+```bash
 vector = BERT([CLS] text [SEP])[CLS_position]   → 768-dim
 ```
 
@@ -63,7 +63,7 @@ vector = BERT([CLS] text [SEP])[CLS_position]   → 768-dim
 
 Average all non-padding token representations:
 
-```
+```bash
 vector = mean(BERT([CLS] text [SEP])[all_tokens])   → 768-dim
 ```
 
@@ -84,7 +84,7 @@ Given a batch of (query, positive_document) pairs, treat all other documents in 
 batch as negatives for each query. Train the model to maximize similarity to the
 positive and minimize similarity to all negatives.
 
-```
+```bash
 Batch: [(q1, d1+), (q2, d2+), (q3, d3+)]
 
 For q1:
@@ -95,7 +95,7 @@ For q1:
 
 Loss function — InfoNCE (contrastive loss):
 
-```
+```bash
 L = -log( exp(sim(q, d+) / τ) / Σ exp(sim(q, dᵢ) / τ) )
 ```
 
@@ -122,7 +122,7 @@ system to outperform BM25 on open-domain question answering benchmarks.
 
 Architecture:
 
-```
+```bash
 Two separate BERT-base encoders:
     query_encoder(q)    → 768-dim query vector
     passage_encoder(p)  → 768-dim passage vector
@@ -135,7 +135,7 @@ sharing weights. Training uses in-batch negatives + BM25 hard negatives.
 
 Results on Natural Questions:
 
-```
+```bash
 BM25:           Top-20 recall = 59.1%
 DPR:            Top-20 recall = 79.4%
 ```
@@ -191,7 +191,7 @@ D, I = index.search(query_vector, k=10)
 
 ### ANN accuracy-speed tradeoff
 
-```
+```bash
 Index type   Build time   Query time   Recall@10   Memory
 ──────────────────────────────────────────────────────────
 Flat         Fast         Slow         100%        High
@@ -243,7 +243,7 @@ none. For low-resource domains and languages, BM25 remains the practical choice.
 
 Dense retrieval is almost always used as the first stage in a two-stage pipeline:
 
-```
+```bash
 Query
   ↓
 Stage 1 — Dense Retrieval (or BM25 or hybrid)
@@ -263,7 +263,7 @@ precision — it accurately scores the shortlist.
 
 ## Where This Fits in the Progression
 
-```
+```bash
 Word Embeddings     → static dense vectors
 BERT for IR         → contextual dense vectors, pretraining
 Dense Retrieval     → applying BERT vectors to first-stage retrieval  ← you are here
