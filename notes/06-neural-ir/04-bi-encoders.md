@@ -27,7 +27,7 @@ each other.
 
 ## Architecture
 
-```
+```bash
 Query encoder:
     q_vec = Encoder_Q([CLS] query tokens [SEP])   → 768-dim vector
 
@@ -63,7 +63,7 @@ of irrelevant pairs. This is metric learning / contrastive learning.
 
 Given a batch of B (query, positive_doc) pairs:
 
-```
+```bash
 For each query qᵢ:
     positive: dᵢ+
     negatives: all other dⱼ+ where j ≠ i
@@ -79,7 +79,7 @@ is why bi-encoder training typically uses large batch sizes (512-4096).
 
 Older approach, still used in some settings:
 
-```
+```bash
 L = max(0, sim(q, d-) - sim(q, d+) + margin)
 ```
 
@@ -108,7 +108,7 @@ A cross-encoder is more accurate than a bi-encoder but too slow for retrieval.
 Use the cross-encoder as a teacher — train the bi-encoder to mimic cross-encoder
 relevance scores:
 
-```
+```bash
 Teacher (cross-encoder):  score_CE(q, d)    → soft labels
 Student (bi-encoder):     score_BE(q, d)    → trained to match teacher
 
@@ -124,7 +124,7 @@ How the sequence of token vectors is collapsed into one fixed-size vector matter
 
 ### CLS token
 
-```
+```bash
 vec = encoder_output[0]    # position 0 is always [CLS]
 ```
 
@@ -132,7 +132,7 @@ Simple, fast. Works well when the model is specifically fine-tuned with CLS pool
 
 ### Mean pooling
 
-```
+```bash
 vec = mean(encoder_output[non_padding_tokens])
 ```
 
@@ -141,7 +141,7 @@ attention mask to exclude padding tokens from the mean.
 
 ### Max pooling
 
-```
+```bash
 vec = max(encoder_output, dim=token_dim)
 ```
 
@@ -188,7 +188,7 @@ This comparison is central to understanding the neural IR architecture:
 
 The standard production pipeline uses both:
 
-```
+```bash
 Bi-encoder → top-1000 candidates → cross-encoder → top-10 final results
 ```
 
@@ -366,7 +366,7 @@ index_pq.add(doc_embeddings)
 
 ## Where This Fits in the Progression
 
-```
+```bash
 Word Embeddings     → static dense vectors
 BERT for IR         → contextual dense vectors
 Dense Retrieval     → applying vectors to retrieval at scale
