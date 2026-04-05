@@ -46,7 +46,7 @@ SPLADE weights terms based on:
 - Including terms not present in the document (expansion)
 - Learned end-to-end from query-document relevance signals
 
-```
+```bash
 BM25 document vector:
   {python: 2.1, search: 1.4, index: 0.8, ...}   ← only terms in document
 
@@ -59,7 +59,7 @@ SPLADE document vector:
 
 SPLADE uses the BERT MLM (Masked Language Modeling) head to produce sparse vectors:
 
-```
+```bash
 Input text → BERT encoder → token representations
                           → MLM head (linear + GELU + layer norm)
                           → logits over full vocabulary (vocab_size ≈ 30,000)
@@ -83,7 +83,7 @@ Input text → BERT encoder → token representations
 4. **Log saturation** — apply log(1 + x) to prevent any single term from
    dominating:
 
-```
+```bash
    weight(t) = log(1 + ReLU(logit(t)))
 ```
 
@@ -96,7 +96,7 @@ Input text → BERT encoder → token representations
 
 ### SPLADE score for a (query, document) pair
 
-```
+```bash
 score(q, d) = Σ_t  w_q(t) × w_d(t)
 ```
 
@@ -111,7 +111,7 @@ SPLADE's most important property is implicit query and document expansion.
 
 Example:
 
-```
+```bash
 Query: "python programming"
 
 SPLADE query vector (top terms by weight):
@@ -142,7 +142,7 @@ SPLADE is trained with two objectives:
 Contrastive loss to maximize score for relevant (query, document) pairs over
 irrelevant ones:
 
-```
+```bash
 L_rank = max(0, margin - score(q, d+) + score(q, d-))
 ```
 
@@ -154,7 +154,7 @@ Without regularization, SPLADE would learn dense vectors — every vocabulary te
 gets a non-zero weight and efficiency is lost. A FLOPS (floating point operations)
 regularizer penalizes the number of non-zero weights:
 
-```
+```bash
 L_FLOPS = λ × Σ_t ( mean_over_batch(w(t)) )²
 ```
 
@@ -164,7 +164,7 @@ controls the sparsity-performance tradeoff.
 
 Total training loss:
 
-```
+```bash
 L = L_rank + λ_q × L_FLOPS(query) + λ_d × L_FLOPS(document)
 ```
 
@@ -202,7 +202,7 @@ in-domain benchmarks, while being more robust out-of-domain than bi-encoders.
 SPLADE's sparse output means it is fully compatible with standard inverted index
 infrastructure:
 
-```
+```bash
 At index time:
     for each document d:
         splade_vec = SPLADE_encoder(d)    → sparse vector
@@ -226,7 +226,7 @@ serve SPLADE indices with minor modifications.
 Unlike dense retrieval where vectors are opaque 768-dimensional arrays, SPLADE
 vectors are readable:
 
-```
+```bash
 Document: "Information retrieval is the task of finding relevant documents."
 
 SPLADE document vector top terms:
@@ -389,7 +389,7 @@ for query in queries:
 SPLADE is a natural component in hybrid search pipelines. Its sparse output
 makes it compatible with the same infrastructure as BM25:
 
-```
+```bash
 Query
   ↓
 Parallel retrieval:
@@ -407,7 +407,7 @@ combination, making it a compelling single-model alternative to full hybrid sear
 
 ## Where This Fits in the Progression
 
-```
+```bash
 Word Embeddings     → static dense vectors
 BERT for IR         → contextual dense vectors
 Dense Retrieval     → applying vectors to first-stage retrieval
