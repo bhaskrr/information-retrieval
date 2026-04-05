@@ -47,6 +47,19 @@ information-retrieval/
 - Stopword Removal
 - Stemming and Lemmatization
 
+### Phase 3 - Indexing
+
+- Inverted Index — construction & querying
+- Index Construction at Scale
+- Index Compression
+
+### Phase 4 — Ranking Models
+
+- Extended Boolean Model
+- Vector Space Model
+- TF-IDF
+- BM25
+
 ---
 
 Started: 2026 · Built while learning · Updated as I go
