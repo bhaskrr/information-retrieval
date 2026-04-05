@@ -37,7 +37,7 @@ information-retrieval/
 ### Phase 1 - Basics
 
 - What is Information Retrieval?
-- IR Taxonomy — the map of all IR techniques
+- IR Taxonomy - the map of all IR techniques
 - Boolean Retrieval Model
 
 ### Phase 2 - Text Processing
@@ -49,16 +49,37 @@ information-retrieval/
 
 ### Phase 3 - Indexing
 
-- Inverted Index — construction & querying
+- Inverted Index - construction & querying
 - Index Construction at Scale
 - Index Compression
 
-### Phase 4 — Ranking Models
+### Phase 4 - Ranking Models
 
 - Extended Boolean Model
 - Vector Space Model
 - TF-IDF
 - BM25
+
+### Phase 5 - Evaluation
+
+- Why Evaluation Matters
+- Test Collections and the Cranfield Paradigm
+- Precision and Recall
+- F-Measure
+- Precision@K
+- Average Precision
+- MAP
+- MRR
+- NDCG
+
+### Phase 6 - Neural IR
+
+- Word Embeddings
+- BERT for IR
+- Dense Retrieval
+- Bi-encoders
+- Cross-encoders
+- SPLADE
 
 ---
 
