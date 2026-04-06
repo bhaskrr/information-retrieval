@@ -81,6 +81,10 @@ information-retrieval/
 - Cross-encoders
 - SPLADE
 
+### Phase 7 - Advanced
+
+- Re-ranking
+
 ---
 
 Started: 2026 · Built while learning · Updated as I go
