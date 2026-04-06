@@ -33,3 +33,4 @@
 | 02/04/2026 | Neural IR       | neural-ir/04              |
 | 03/04/2026 | Neural IR       | neural-ir/05              |
 | 04/04/2026 | Neural IR       | neural-ir/06              |
+| 05/04/2026 | Advanced        | advanced/01               |
