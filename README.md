@@ -84,6 +84,7 @@ information-retrieval/
 ### Phase 7 - Advanced
 
 - Re-ranking
+- Hybrid Search
 
 ---
 
