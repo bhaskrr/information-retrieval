@@ -85,6 +85,7 @@ information-retrieval/
 
 - Re-ranking
 - Hybrid Search
+- ColBERT
 
 ---
 
