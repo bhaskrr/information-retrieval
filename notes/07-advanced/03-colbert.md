@@ -36,7 +36,7 @@ The key insight is that token-level matching is asymmetric in cost:
 
 Query encoding:
 
-```
+```bash
 [Q] query tokens [MASK] [MASK] ... [MASK]
          ↓ BERT encoder
 token vectors: E_q = [e_q1, e_q2, ..., e_qm]    shape: (m, 128)
@@ -44,7 +44,7 @@ token vectors: E_q = [e_q1, e_q2, ..., e_qm]    shape: (m, 128)
 
 Document encoding:
 
-```
+```bash
 [D] document tokens
          ↓ BERT encoder
 token vectors: E_d = [e_d1, e_d2, ..., e_dn]    shape: (n, 128)
@@ -61,14 +61,14 @@ short queries.
 
 The relevance score is computed by the MaxSim operator:
 
-```
+```bash
 score(q, d) = Σᵢ max_j ( eᵢ_q · eʲ_d )
 ```
 
 For each query token i, find the maximum similarity to any document token j.
 Sum these maximum similarities across all query tokens.
 
-```
+```bash
 Query tokens:    [q1, q2, q3]
 Document tokens: [d1, d2, d3, d4, d5]
 
@@ -127,7 +127,7 @@ This is an approximate retrieval — FAISS ANN search introduces approximation.
 Use a fast first-stage retriever (BM25 or bi-encoder) to get top-k candidates,
 then rerank with exact ColBERT MaxSim scoring:
 
-```
+```bash
 BM25 / bi-encoder → top-1000 candidates
 ColBERT MaxSim    → exact reranking of top-1000
 ```
@@ -176,7 +176,7 @@ Standard setup: MS MARCO training triples (query, positive passage, negative pas
 
 Pairwise softmax loss over in-batch negatives:
 
-```
+```bash
 L = -log( exp(score(q, d+)) / (exp(score(q, d+)) + Σ exp(score(q, dᵢ-))) )
 ```
 
@@ -206,7 +206,7 @@ proportionally lower.
 Unlike single-vector bi-encoders where the relevance signal is opaque, ColBERT's
 MaxSim can be inspected:
 
-```
+```bash
 Query: "information retrieval evaluation"
 
 Top matching document tokens:
@@ -248,7 +248,7 @@ complexity.
 
 ColBERT occupies a unique position in the retrieval model spectrum:
 
-```
+```bash
 Efficiency                                              Accuracy
 ◄──────────────────────────────────────────────────────────────►
 BM25 → Bi-encoder → ColBERT → ColBERT reranker → Cross-encoder
@@ -260,7 +260,7 @@ a drop-in replacement for bi-encoders in systems where storage is not a constrai
 
 ## Where This Fits in the Progression
 
-```
+```bash
 Dense Retrieval     → single vector per document
 Bi-encoders         → efficient single-vector retrieval
 Cross-encoders      → accurate but slow joint encoding
