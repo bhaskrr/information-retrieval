@@ -87,6 +87,7 @@ information-retrieval/
 - Hybrid Search
 - ColBERT
 - RAG
+- Evaluation at Scale
 
 ---
 
