@@ -28,6 +28,8 @@ information-retrieval/
 |   ├── 04-ranking-models/
 |   ├── 05-evaluation/
 |   ├── 06-neural-ir/
+|   ├── 07-advanced/
+|   ├── 08-efficiency/
 ```
 
 ---
