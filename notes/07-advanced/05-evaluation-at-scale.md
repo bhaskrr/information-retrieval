@@ -32,7 +32,7 @@ scores well only on MS MARCO has overfit to a specific distribution.
 
 Consider the vocabulary gap between domains:
 
-```
+```bash
 MS MARCO (web queries):
   "what is the capital of france"
   "how to fix a leaky faucet"
@@ -58,7 +58,7 @@ Dense retrievers require large amounts of labeled query-document pairs to train
 effectively. MS MARCO provides ~500K training triples for English web queries.
 For specialized domains:
 
-```
+```bash
 Biomedical retrieval:    TREC-COVID, NFCorpus (~3K examples)
 Legal retrieval:         FIQA, small datasets
 Financial QA:            Very limited labeled data
@@ -78,7 +78,7 @@ the primary metric — making results directly comparable across systems.
 
 ### The 18 datasets
 
-```
+```bash
 Dataset          Domain              Task              Size (corpus)
 ────────────────────────────────────────────────────────────────────
 MSMARCO          Web                 Passage retrieval  8.8M passages
@@ -119,7 +119,7 @@ Despite being a hand-crafted function with no learned parameters, BM25 outperfor
 most neural retrievers on BEIR. Its exact matching strength generalizes perfectly
 because it makes no domain-specific assumptions.
 
-```
+```bash
 BM25 average NDCG@10 on BEIR:          0.428
 Dense (msmarco-distilbert):             0.396
 Dense (msmarco-bert-base):              0.411
@@ -133,7 +133,7 @@ BM25 on BEIR. This is the generalization gap.
 Larger pretrained models (more parameters, more pretraining data) generalize better
 out-of-domain, even without task-specific fine-tuning.
 
-```
+```bash
 all-MiniLM-L6-v2 (22M params):   BEIR avg ≈ 0.41
 all-mpnet-base-v2 (109M params):  BEIR avg ≈ 0.43
 E5-large (335M params):           BEIR avg ≈ 0.48
@@ -145,7 +145,7 @@ SPLADE's learned sparse representations generalize better than dense bi-encoders
 because they maintain term-level matching similar to BM25 while adding semantic
 expansion.
 
-```
+```bash
 SPLADE++ on BEIR average:         0.453
 Dense (bi-encoder) on BEIR:       0.411
 Hybrid (BM25 + dense) on BEIR:    0.461
@@ -158,7 +158,7 @@ Performance varies wildly by domain. A model ranking 1st on biomedical datasets
 may rank 5th on financial datasets. Aggregate scores hide domain-specific strengths
 and weaknesses.
 
-```
+```bash
 Model performance variance across BEIR datasets:
   Best dataset NDCG@10:   ~0.80+ (Quora duplicate detection)
   Worst dataset NDCG@10:  ~0.10  (some argument retrieval tasks)
@@ -171,7 +171,7 @@ Model performance variance across BEIR datasets:
 56 datasets across 8 task types in 112 languages. The most comprehensive embedding
 benchmark:
 
-```
+```bash
 Tasks covered:
   Retrieval              → 15 datasets (includes BEIR subset)
   Clustering             → 11 datasets
@@ -230,7 +230,7 @@ corpus, queries, qrels = GenericDataLoader(data_folder=data_path).load(split="te
 
 BEIR reports a standard set of metrics for each dataset:
 
-```
+```bash
 NDCG@10       → primary metric, used for leaderboard ranking
 Recall@100    → how many relevant docs in top-100 (retrieval coverage)
 Precision@1   → top-1 precision
@@ -428,7 +428,7 @@ def evaluate_bm25_on_corpus(corpus: dict,
 
 Ballpark NDCG@10 on BEIR across model families (as of 2025):
 
-```
+```bash
 Model family                        BEIR avg NDCG@10
 ────────────────────────────────────────────────────
 BM25                                0.428
@@ -479,7 +479,7 @@ component is reliable across domains.
 
 ## Where This Fits in the Progression
 
-```
+```bash
 Dense Retrieval         → first-stage neural retrieval
 Bi-encoders             → efficient first-stage retrieval
 Cross-encoders          → accurate reranking
