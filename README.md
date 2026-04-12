@@ -91,6 +91,11 @@ information-retrieval/
 - RAG
 - Evaluation at Scale
 
+### Phase 8 - Efficiency
+
+- Why Efficiency Matters
+- Quantization
+
 ---
 
 Started: 2026 · Built while learning · Updated as I go
