@@ -36,6 +36,8 @@ information-retrieval/
 
 ## Learning Roadmap
 
+This repository follows a structured learning roadmap, progressing from foundational concepts to advanced and neural IR techniques. Each phase is designed to build upon the previous one, ensuring a comprehensive understanding.
+
 ### Phase 1 - Basics
 
 - What is Information Retrieval?
