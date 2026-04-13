@@ -101,4 +101,14 @@ This repository follows a structured learning roadmap, progressing from foundati
 
 ---
 
+## Glossary
+
+For a quick reference to key terms and definitions in Information Retrieval, please refer to the `glossary.md` file in this repository.
+
+## Contributions
+
+Contributions are welcome! If you have suggestions for improvements, new topics, or find any issues, please feel free to open an issue or submit a pull request.
+
+---
+
 Started: 2026 · Built while learning · Updated as I go
