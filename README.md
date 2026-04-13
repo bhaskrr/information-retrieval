@@ -95,6 +95,7 @@ information-retrieval/
 
 - Why Efficiency Matters
 - Quantization
+- Knowledge Distillation
 
 ---
 
