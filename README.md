@@ -98,6 +98,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 - Why Efficiency Matters
 - Quantization
 - Knowledge Distillation
+- Model Pruning
 
 ---
 
