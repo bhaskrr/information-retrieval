@@ -20,7 +20,7 @@ information-retrieval/
 ├── README.md                        ← You are here
 ├── glossary.md                      ← Key terms & definitions
 ├── code/
-|   ├── notebooks/ 
+|   ├── notebooks/
 ├── notes/
 │   ├── 01-basics/
 │   ├── 02-text-processing/
@@ -99,6 +99,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 - Quantization
 - Knowledge Distillation
 - Model Pruning
+- Onnx and Runtime Optimization
 
 ---
 
