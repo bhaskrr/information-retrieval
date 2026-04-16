@@ -41,7 +41,7 @@ The simplest ANN approach. Clusters document vectors into nlist groups at index
 build time using k-means. At query time, searches only the nprobe nearest clusters
 instead of all vectors.
 
-```
+```bash
 Build time:
   1. Run k-means on all document vectors → nlist cluster centroids
   2. Assign each document vector to its nearest centroid
@@ -59,7 +59,7 @@ Parameters:
 - nlist: number of clusters (typically sqrt(N) to 4×sqrt(N) where N = corpus size)
 - nprobe: clusters to search at query time (tradeoff between speed and recall)
 
-```
+```bash
 nlist = 1000, nprobe = 10:
   Search 1% of corpus → ~100x speedup vs exact
   Recall@10: ~92%
@@ -79,7 +79,7 @@ vectors and edges connect nearby vectors. Query time traverses the graph from
 the top (coarse) layer to the bottom (fine) layer, narrowing down nearest
 neighbours at each step.
 
-```
+```bash
 Layer 2 (sparse):  few nodes, long-range connections → coarse navigation
 Layer 1 (medium):  more nodes, medium connections    → medium resolution
 Layer 0 (dense):   all nodes, short connections      → fine-grained search
@@ -87,7 +87,7 @@ Layer 0 (dense):   all nodes, short connections      → fine-grained search
 
 Query traversal:
 
-```
+```bash
 1. Start at entry point in top layer
 2. Greedily move to node closest to query
 3. Move down to next layer at current position
@@ -101,7 +101,7 @@ Parameters:
 - ef_construction: beam size during index build (higher = better quality, slower build)
 - ef_search: beam size during query (tradeoff: higher = better recall, slower search)
 
-```
+```bash
 M=16, ef_search=64:   Recall@10 ~99%, latency ~1ms
 M=32, ef_search=128:  Recall@10 ~99.5%, latency ~2ms
 ```
@@ -114,7 +114,7 @@ and is the default choice for most production IR systems when memory is availabl
 PQ is a compression technique that dramatically reduces the memory footprint of
 an ANN index by compressing document vectors into compact codes.
 
-```
+```bash
 Original vector: 768 dimensions × 4 bytes = 3072 bytes per document
 
 PQ compression:
@@ -133,7 +133,7 @@ PQ enables billion-scale indices in memory that would otherwise require terabyte
 
 Combines IVF (fast coarse search) with PQ (compressed vectors):
 
-```
+```bash
 Build: cluster vectors (IVF) + compress residuals within clusters (PQ)
 Query: find nearest clusters (IVF) + approximate distances within clusters (PQ)
 ```
