@@ -100,6 +100,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 - Knowledge Distillation
 - Model Pruning
 - Onnx and Runtime Optimization
+- Caching and Batching
 - Approximate Nearest Neighboour Search
 
 ---
