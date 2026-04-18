@@ -92,6 +92,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 - ColBERT
 - RAG
 - Evaluation at Scale
+- Query Understanding
 
 ### Phase 8 - Efficiency
 
