@@ -84,6 +84,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 - Bi-encoders
 - Cross-encoders
 - SPLADE
+- Late Chunking
 
 ### Phase 7 - Advanced
 
