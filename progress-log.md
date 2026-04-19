@@ -46,3 +46,4 @@
 | 15/04/2026 | Efficiency      | efficiency/06             |
 | 16/04/2026 | Efficiency      | efficiency/07             |
 | 17/06/2026 | Advanced        | advanced/06               |
+| 18/06/2026 | Ranking Models  | ranking-models/05         |
