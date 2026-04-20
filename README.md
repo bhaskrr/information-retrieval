@@ -105,6 +105,10 @@ This repository follows a structured learning roadmap, progressing from foundati
 - Caching and Batching
 - Approximate Nearest Neighboour Search
 
+### Phase 9 - Conversational IR
+
+- Multi-turn Retrieval
+
 ---
 
 ## Glossary
