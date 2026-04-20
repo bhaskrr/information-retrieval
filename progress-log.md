@@ -48,3 +48,4 @@
 | 17/06/2026 | Advanced        | advanced/06               |
 | 18/06/2026 | Ranking Models  | ranking-models/05         |
 | 19/06/2026 | Neural IR       | neural-ir/07              |
+| 20/06/2026 | Conversational IR | conversational-ir/01    |
