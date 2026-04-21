@@ -30,6 +30,7 @@ information-retrieval/
 |   ├── 06-neural-ir/
 |   ├── 07-advanced/
 |   ├── 08-efficiency/
+|   ├── 09-conversational-ir/
 ```
 
 ---
@@ -108,6 +109,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 ### Phase 9 - Conversational IR
 
 - Multi-turn Retrieval
+- Query Reformulation
 
 ---
 
