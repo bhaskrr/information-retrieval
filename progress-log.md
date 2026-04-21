@@ -45,7 +45,8 @@
 | 14/04/2026 | Efficiency      | efficiency/05             |
 | 15/04/2026 | Efficiency      | efficiency/06             |
 | 16/04/2026 | Efficiency      | efficiency/07             |
-| 17/06/2026 | Advanced        | advanced/06               |
-| 18/06/2026 | Ranking Models  | ranking-models/05         |
-| 19/06/2026 | Neural IR       | neural-ir/07              |
-| 20/06/2026 | Conversational IR | conversational-ir/01    |
+| 17/04/2026 | Advanced        | advanced/06               |
+| 18/04/2026 | Ranking Models  | ranking-models/05         |
+| 19/04/2026 | Neural IR       | neural-ir/07              |
+| 20/04/2026 | Conversational IR | conversational-ir/01    |
+| 21/04/2026 | Conversational IR | conversational-ir/02    |
