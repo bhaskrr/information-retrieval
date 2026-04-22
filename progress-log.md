@@ -50,3 +50,4 @@
 | 19/04/2026 | Neural IR       | neural-ir/07              |
 | 20/04/2026 | Conversational IR | conversational-ir/01    |
 | 21/04/2026 | Conversational IR | conversational-ir/02    |
+| 22/04/2026 | Conversational IR | conversational-ir/03    |
