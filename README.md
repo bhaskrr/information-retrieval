@@ -110,6 +110,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 
 - Multi-turn Retrieval
 - Query Reformulation
+- Conversational RAG
 
 ---
 
