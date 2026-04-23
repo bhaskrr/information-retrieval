@@ -64,6 +64,8 @@ This repository follows a structured learning roadmap, progressing from foundati
 - Vector Space Model
 - TF-IDF
 - BM25
+- Learning to Rank
+- Language Models for IR
 
 ### Phase 5 - Evaluation
 
