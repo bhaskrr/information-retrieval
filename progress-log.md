@@ -51,3 +51,4 @@
 | 20/04/2026 | Conversational IR | conversational-ir/01    |
 | 21/04/2026 | Conversational IR | conversational-ir/02    |
 | 22/04/2026 | Conversational IR | conversational-ir/03    |
+| 23/04/2026 | Ranking Models    | ranking-models/06       |
