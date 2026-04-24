@@ -3,7 +3,7 @@
 BERT (Bidirectional Encoder Representations from Transformers) is a pretrained
 transformer-based language model introduced by Devlin et al. at Google in 2018.
 In IR, BERT fundamentally changed how text is represented and how query-document
-relevance is modeled — replacing static word vectors with deep contextual
+relevance is modeled, replacing static word vectors with deep contextual
 representations that understand the meaning of a word in its specific context.
 
 ## Intuition
@@ -14,22 +14,21 @@ static average of all contexts the word appears in during training.
 
 BERT fixes this. It reads the entire sentence bidirectionally and produces a
 different vector for "bank" depending on the surrounding words. The representation
-is contextual — the same word gets a different embedding in every sentence it
+is contextual, the same word gets a different embedding in every sentence it
 appears in.
 
 For IR this matters enormously. Query terms and document terms are ambiguous.
 "python tutorial" could mean the programming language or the snake. BERT can
 distinguish these based on context in a way that static embeddings never could.
 
-## The Transformer Architecture — Key Ideas
+## The Transformer Architecture, Key Ideas
 
-BERT is built on the transformer encoder. Understanding three core ideas is enough
-to work with BERT in an IR context:
+BERT is built on the transformer encoder. Understanding three core ideas is enough to work with BERT in an IR context:
 
 ### 1. Self-attention
 
 Every token in a sequence attends to every other token. For each token, self-
-attention computes a weighted sum of all other token representations — the weights
+attention computes a weighted sum of all other token representations, the weights
 reflect how relevant each other token is to understanding the current one.
 
 ```bash
@@ -40,14 +39,14 @@ For token "bank":
   attends weakly to   → "the"
 ```
 
-This is what makes BERT contextual — every token's representation is influenced
+This is what makes BERT contextual, every token's representation is influenced
 by every other token in the sequence.
 
 ### 2. Bidirectionality
 
 BERT reads text in both directions simultaneously. Unlike earlier models (GPT,
 ELMo) that read left-to-right or combined two unidirectional models, BERT's
-self-attention operates over the full sequence at once — left context and right
+self-attention operates over the full sequence at once, left context and right
 context are both available when representing any token.
 
 ```bash
@@ -60,7 +59,7 @@ sees both "the" (left) and "by the river" (right) simultaneously
 
 BERT is pretrained on two tasks using massive text corpora:
 
-**Masked Language Modeling (MLM)** — randomly mask 15% of tokens, train the
+**Masked Language Modeling (MLM)**, randomly mask 15% of tokens, train the
 model to predict the masked tokens from context:
 
 ```bash
@@ -68,7 +67,7 @@ Input:  "information [MASK] is the task of finding relevant documents"
 Target: predict "retrieval"
 ```
 
-**Next Sentence Prediction (NSP)** — given two sentences, predict whether the
+**Next Sentence Prediction (NSP)**, given two sentences, predict whether the
 second follows the first in the original text.
 
 After pretraining on Wikipedia and BookCorpus (~3.3 billion words), BERT learns
@@ -110,7 +109,7 @@ Input:  [CLS] query [SEP] document [SEP]
 Output: [CLS] representation → linear layer → relevance score
 ```
 
-This is the cross-encoder architecture — covered in depth in 05-cross-encoders.md.
+This is the cross-encoder architecture, covered in depth in 05-cross-encoders.md.
 
 ### 2. Transfer learning from massive pretraining
 
@@ -119,7 +118,7 @@ on even a few thousand query-document relevance pairs produces strong results be
 the model starts from a rich language understanding rather than random weights.
 
 MS MARCO (1 million labeled query-passage pairs) combined with BERT pretraining
-produced models that dramatically outperformed BM25 on passage retrieval — this
+produced models that dramatically outperformed BM25 on passage retrieval, this
 was the moment neural IR became the dominant research direction.
 
 ## BERT for Query-Document Relevance
@@ -137,8 +136,8 @@ of finding material that satisfies an information need [SEP]
 ```
 
 Advantages: rich query-document interaction, highest accuracy
-Disadvantages: must run BERT for every (query, document) pair at query time —
-O(|corpus|) BERT forward passes per query — completely infeasible for first-stage
+Disadvantages: must run BERT for every (query, document) pair at query time,
+O(|corpus|) BERT forward passes per query, completely infeasible for first-stage
 retrieval over large corpora.
 
 Solution: use cross-encoders only for reranking a small shortlist (e.g. top 100
@@ -154,9 +153,9 @@ document_vec = BERT([CLS] document [SEP])           → 768-dim vector
 score        = cosine_similarity(query_vec, doc_vec)
 ```
 
-Advantages: document vectors precomputed offline — query time is one BERT forward
+Advantages: document vectors precomputed offline, query time is one BERT forward
 pass + fast vector search
-Disadvantages: query and document never interact during encoding — less accurate
+Disadvantages: query and document never interact during encoding, less accurate
 than cross-encoder
 
 This is the dense retrieval paradigm. Covered fully in 03-dense-retrieval.md and
@@ -176,7 +175,7 @@ This is the dense retrieval paradigm. Covered fully in 03-dense-retrieval.md and
 | ColBERT    | BERT with late interaction for efficient reranking | Advanced retrieval   |
 | SPLADE     | BERT producing learned sparse representations      | Neural sparse IR     |
 
-## Fine-tuning BERT for Relevance — The MS MARCO Moment
+## Fine-tuning BERT for Relevance, The MS MARCO Moment
 
 The combination of MS MARCO (large labeled dataset) + BERT (pretrained language
 model) in 2019 was the inflection point for neural IR:
@@ -195,13 +194,13 @@ direct descendant of this moment.
 ### Computational cost
 
 A full BERT forward pass takes ~5ms on GPU. For a corpus of 10 million documents,
-full cross-encoder scoring at query time would take 50,000 seconds — completely
+full cross-encoder scoring at query time would take 50,000 seconds, completely
 infeasible. This is why the bi-encoder / cross-encoder split exists.
 
 ### Input length limit
 
 BERT processes at most 512 tokens. Long documents must be split into passages,
-each scored independently — losing document-level context.
+each scored independently, losing document-level context.
 
 ### Static after fine-tuning
 
@@ -246,13 +245,4 @@ SPLADE              → BERT producing learned sparse vectors
 
 ## My Summary
 
-BERT produces deep contextual token representations by running bidirectional self-
-attention over the full input sequence — the same word gets a different vector
-depending on its context, resolving polysemy in a way static embeddings cannot.
-Pretrained on billions of words via masked language modeling, BERT fine-tuned on
-MS MARCO passage pairs nearly doubled BM25 performance and triggered the neural IR
-revolution. In IR it is used in two ways: as a cross-encoder that jointly encodes
-query and document for accurate reranking, and as a bi-encoder that encodes them
-separately for efficient dense retrieval. Every subsequent model in this module —
-dense retrieval, bi-encoders, cross-encoders, SPLADE, ColBERT — is a direct
-extension or adaptation of the BERT architecture for specific IR constraints.
+BERT produces deep contextual token representations by running bidirectional self-attention over the full input sequence, the same word gets a different vector depending on its context, resolving polysemy in a way static embeddings cannot. Pretrained on billions of words via masked language modeling, BERT fine-tuned on MS MARCO passage pairs nearly doubled BM25 performance and triggered the neural IR revolution. In IR it is used in two ways: as a cross-encoder that jointly encodes query and document for accurate reranking, and as a bi-encoder that encodes them separately for efficient dense retrieval. Every subsequent model in this module, dense retrieval, bi-encoders, cross-encoders, SPLADE, ColBERT, is a direct extension or adaptation of the BERT architecture for specific IR constraints.
