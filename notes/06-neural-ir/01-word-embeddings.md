@@ -1,26 +1,19 @@
 # Word Embeddings
 
 Word embeddings are dense vector representations of words learned from large text
-corpora. Each word is mapped to a fixed-size vector of real numbers such that words
-with similar meanings or usage patterns are mapped to nearby points in the vector
-space. Word embeddings are the foundation of neural IR — they replace the sparse
-high-dimensional TF-IDF vectors of classical IR with compact learned representations
-that capture semantic meaning.
+corpora. Each word is mapped to a fixed-size vector of real numbers such that words with similar meanings or usage patterns are mapped to nearby points in the vector space. Word embeddings are the foundation of neural IR, they replace the sparse high-dimensional TF-IDF vectors of classical IR with compact learned representations that capture semantic meaning.
 
 ## Intuition
 
-In TF-IDF and BM25, every word is an independent dimension. "car" and "automobile"
-are orthogonal vectors — zero similarity, no relationship. The model has no way to
-know they mean the same thing.
+In TF-IDF and BM25, every word is an independent dimension. "car" and "automobile" are orthogonal vectors, zero similarity, no relationship. The model has no way to know they mean the same thing.
 
 Word embeddings fix this by learning from context. The distributional hypothesis
 underlies all embedding methods:
 
 > Words that appear in similar contexts tend to have similar meanings.
 
-"car" and "automobile" appear in similar sentences — near words like "drive",
-"engine", "road", "passenger". After training on enough text, their vectors end up
-close together in the embedding space. This is not hand-coded — it emerges from
+"car" and "automobile" appear in similar sentences, near words like "drive",
+"engine", "road", "passenger". After training on enough text, their vectors end up close together in the embedding space. This is not hand-coded, it emerges from
 the data.
 
 ## From Sparse to Dense
@@ -43,30 +36,29 @@ Word vector:    [0.23, -0.41, 0.87, 0.12, ..., -0.33]  ← 300 dimensions, all n
 
 Dense vectors are:
 
-- Much smaller — 300 vs 50,000 dimensions
-- Semantically meaningful — distance reflects meaning
-- Generalizable — similar words share similar vectors
+- Much smaller, 300 vs 50,000 dimensions
+- Semantically meaningful, distance reflects meaning
+- Generalizable, similar words share similar vectors
 
 ## Word2Vec
 
-Introduced by Mikolov et al. at Google in 2013. The most influential word embedding
-method and the starting point for understanding all that followed.
+Introduced by Mikolov et al. at Google in 2013. The most influential word embedding method and the starting point for understanding all that followed.
 
 ### The core idea
 
 Train a shallow neural network to predict context from a word (or word from context).
-The network is a means to an end — the learned weights become the word vectors.
+The network is a means to an end, the learned weights become the word vectors.
 
 ### Two architectures
 
-**Skip-gram** — given a center word, predict surrounding context words:
+**Skip-gram**, given a center word, predict surrounding context words:
 
 ```bash
 Input:  "search"
 Target: predict ["information", "engine", "query", "index"]
 ```
 
-**CBOW (Continuous Bag of Words)** — given context words, predict the center word:
+**CBOW (Continuous Bag of Words)**, given context words, predict the center word:
 
 ```bash
 Input:  ["information", "engine", "query", "index"]
@@ -81,7 +73,7 @@ The network has one hidden layer. The weight matrix of this layer (vocab_size ×
 embedding_dim) becomes the embedding lookup table after training. Each row is the
 embedding vector for one word.
 
-Training uses negative sampling — for each positive (word, context) pair, sample
+Training uses negative sampling, for each positive (word, context) pair, sample
 several random negative words and train the model to distinguish real context from
 random noise. This makes training feasible at scale.
 
@@ -95,7 +87,7 @@ paris - france + italy ≈ rome
 walking - walk + swim ≈ swimming
 ```
 
-These relationships are encoded as linear offsets in the embedding space — a
+These relationships are encoded as linear offsets in the embedding space, a
 remarkable emergent property of the distributional training objective.
 
 ## GloVe (Global Vectors)
@@ -141,12 +133,12 @@ representing each word as a sum of its character n-gram vectors.
 
 ### Why character n-grams matter
 
-- **Out-of-vocabulary words** — Word2Vec has no vector for words not seen during
+- **Out-of-vocabulary words**, Word2Vec has no vector for words not seen during
   training. FastText can construct a vector for any word from its character n-grams,
   even entirely new words.
-- **Morphological variation** — "search", "searching", "searches" share n-grams and
+- **Morphological variation**, "search", "searching", "searches" share n-grams and
   thus similar vectors, even without explicit stemming.
-- **Misspellings** — "recieve" shares n-grams with "receive" and gets a reasonable
+- **Misspellings**, "recieve" shares n-grams with "receive" and gets a reasonable
   vector.
 
 FastText is particularly useful for morphologically rich languages and domains with
@@ -172,7 +164,7 @@ embedding("Rome") - embedding("Italy") ≈ embedding("Paris") - embedding("Franc
 
 ### Polysemy problem
 
-Word2Vec, GloVe, and FastText produce one vector per word — regardless of meaning.
+Word2Vec, GloVe, and FastText produce one vector per word, regardless of meaning.
 "bank" gets one vector even though it can mean a financial institution or a
 riverbank. Context is ignored entirely.
 
@@ -196,7 +188,7 @@ ability to distinguish "dog bites man" from "man bites dog".
 
 ### Weighted averaging (TF-IDF weighted)
 
-Weight each word vector by its TF-IDF score before averaging — rare, important
+Weight each word vector by its TF-IDF score before averaging, rare, important
 words contribute more than common ones:
 
 ```bash
@@ -213,18 +205,18 @@ many sentence similarity benchmarks.
 
 Word embeddings are the first step into neural IR. They demonstrate that learned
 dense vectors capture meaning in a way sparse TF-IDF vectors never can. Their
-limitation — one static vector per word regardless of context — is exactly what
+limitation, one static vector per word regardless of context, is exactly what
 BERT solves.
 
 ## My Summary
 
 Word embeddings map words to dense vectors such that semantically similar words
 are geometrically close. Word2Vec learns from local context windows, GloVe from
-global co-occurrence statistics, and FastText from character n-grams — enabling
+global co-occurrence statistics, and FastText from character n-grams, enabling
 robust handling of rare and out-of-vocabulary words. All three produce one static
 vector per word regardless of context, which means polysemous words like "bank"
 get one vector that blends all their meanings. Document embeddings are constructed
 by averaging word vectors, weighted or unweighted. Word embeddings are the
-conceptual foundation of neural IR — they establish that dense learned vectors
+conceptual foundation of neural IR, they establish that dense learned vectors
 capture semantic relationships that sparse TF-IDF vectors cannot, setting up the
 transition to contextual embeddings via BERT.
