@@ -52,3 +52,4 @@
 | 21/04/2026 | Conversational IR | conversational-ir/02    |
 | 22/04/2026 | Conversational IR | conversational-ir/03    |
 | 23/04/2026 | Ranking Models    | ranking-models/06       |
+| 24/04/2026 | Neural IR         | neural-ir/01, 02        |
