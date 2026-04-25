@@ -78,6 +78,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 - MAP
 - MRR
 - NDCG
+- Online Evaluation
 
 ### Phase 6 - Neural IR
 
