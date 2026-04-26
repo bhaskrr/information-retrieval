@@ -98,6 +98,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 - RAG
 - Evaluation at Scale
 - Query Understanding
+- Personalization
 
 ### Phase 8 - Efficiency
 
