@@ -55,3 +55,4 @@
 | 24/04/2026 | Neural IR         | neural-ir/01, 02        |
 | 25/04/2026 | Evaluation        | evaluation/11           |
 | 26/04/2026 | Advanced          | advanced/07             |
+| 27/04/2026 | Advanced          | advanced/08             |
