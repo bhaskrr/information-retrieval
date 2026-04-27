@@ -99,6 +99,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 - Evaluation at Scale
 - Query Understanding
 - Personalization
+- Diversity in Ranking
 
 ### Phase 8 - Efficiency
 
