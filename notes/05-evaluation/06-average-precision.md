@@ -5,8 +5,8 @@
 Recall the blindspot from the previous file:
 
 ```bash
-Model A: [r, r, r, nr, nr]  →  Precision@5 = 0.6
-Model B: [nr, nr, r, r, r]  →  Precision@5 = 0.6
+Model A: [r, r, r, nr, nr]  Precision@5 = 0.6
+Model B: [nr, nr, r, r, r]  Precision@5 = 0.6
 ```
 
 Same score. But Model A is clearly better, it surfaces all three relevant items in the first three positions. A user scanning from the top would find something useful almost immediately. A user of Model B has to wade through two irrelevant items first.
@@ -19,11 +19,11 @@ Precision@K has no way to distinguish these two models because it only counts re
 
 ## Definition
 
-$$AP = \frac{1}{R} \sum_{k=1}^{N} P@k \times \text{rel}(k)$$
+$$AP = \frac{1}{|R|} \sum_{k=1}^{N} P@k \times \text{rel}(k)$$
 
 Where:
 
-- $R$ = total number of relevant items for this user
+- $|R|$ = total number of relevant items for this user
 - $N$ = total number of items in the ranked list
 - $P@k$ = Precision@K computed at position k
 - $\text{rel}(k)$ = 1 if the item at position k is relevant, 0 otherwise
@@ -39,10 +39,10 @@ The key insight is that $\text{rel}(k)$ acts as a gate, positions with irrelevan
 When a relevant item appears early in the list, the Precision@k at that position is high because few irrelevant items have accumulated yet. When a relevant item appears late, Precision@k at that position is low because many irrelevant items have already diluted it.
 
 ```bash
-Relevant item at position 1:  P@1 = 1/1 = 1.0   ← high contribution
-Relevant item at position 2:  P@2 = 2/2 = 1.0   ← high contribution
-Relevant item at position 8:  P@8 = 3/8 = 0.375 ← lower contribution
-Relevant item at position 10: P@10= 4/10= 0.4   ← lower contribution
+Relevant item at position 1:  P@1 = 1/1 = 1.0    high contribution
+Relevant item at position 2:  P@2 = 2/2 = 1.0    high contribution
+Relevant item at position 8:  P@8 = 3/8 = 0.375  lower contribution
+Relevant item at position 10: P@10= 4/10= 0.4    lower contribution
 ```
 
 The earlier the relevant item, the higher its Precision@k value, and therefore the higher its contribution to AP. This is exactly the position-sensitive behavior that Precision@K lacked.
@@ -71,12 +71,12 @@ R = 5 (total relevant items).
 
 Computing P@k only at relevant positions:
 
-```nash
-Position 1:  P@1  = 1/1  = 1.000   rel(1) = 1  →  contributes 1.000
-Position 3:  P@3  = 2/3  = 0.667   rel(3) = 1  →  contributes 0.667
-Position 5:  P@5  = 3/5  = 0.600   rel(5) = 1  →  contributes 0.600
-Position 7:  P@7  = 4/7  = 0.571   rel(7) = 1  →  contributes 0.571
-Position 10: P@10 = 5/10 = 0.500   rel(10)= 1  →  contributes 0.500
+```bash
+Position 1:  P@1  = 1/1  = 1.000   rel(1) = 1    contributes 1.000
+Position 3:  P@3  = 2/3  = 0.667   rel(3) = 1    contributes 0.667
+Position 5:  P@5  = 3/5  = 0.600   rel(5) = 1    contributes 0.600
+Position 7:  P@7  = 4/7  = 0.571   rel(7) = 1    contributes 0.571
+Position 10: P@10 = 5/10 = 0.500   rel(10)= 1    contributes 0.500
 ```
 
 $$AP = \frac{1}{5}(1.000 + 0.667 + 0.600 + 0.571 + 0.500) = \frac{3.338}{5} = 0.668$$
@@ -91,9 +91,9 @@ Assume 3 relevant items total (R = 3), list length = 5:
 **Model A:** [r, r, r, nr, nr]
 
 ```bash
-Position 1: P@1 = 1/1 = 1.000  →  contributes 1.000
-Position 2: P@2 = 2/2 = 1.000  →  contributes 1.000
-Position 3: P@3 = 3/3 = 1.000  →  contributes 1.000
+Position 1: P@1 = 1/1 = 1.000    contributes 1.000
+Position 2: P@2 = 2/2 = 1.000    contributes 1.000
+Position 3: P@3 = 3/3 = 1.000    contributes 1.000
 
 AP = (1.000 + 1.000 + 1.000) / 3 = 1.000
 ```
@@ -101,9 +101,9 @@ AP = (1.000 + 1.000 + 1.000) / 3 = 1.000
 **Model B:** [nr, nr, r, r, r]
 
 ```bash
-Position 3: P@3 = 1/3 = 0.333  →  contributes 0.333
-Position 4: P@4 = 2/4 = 0.500  →  contributes 0.500
-Position 5: P@5 = 3/5 = 0.600  →  contributes 0.600
+Position 3: P@3 = 1/3 = 0.333    contributes 0.333
+Position 4: P@4 = 2/4 = 0.500    contributes 0.500
+Position 5: P@5 = 3/5 = 0.600    contributes 0.600
 
 AP = (0.333 + 0.500 + 0.600) / 3 = 0.478
 ```
@@ -128,7 +128,7 @@ AP@10 is the most common variant in RecSys papers.
 
 **AP assumes binary relevance.** An item is either relevant (1) or not (0). It has no notion of a 5-star rating being more relevant than a 3-star rating. This is fine for many RecSys tasks but inadequate when you have graded relevance signals.
 
-**AP can be noisy with few relevant items.** If a user has only 1–2 relevant items, AP becomes highly sensitive to where exactly those items land. A single position difference can swing AP dramatically.
+**AP can be noisy with few relevant items.** If a user has only 1-2 relevant items, AP becomes highly sensitive to where exactly those items land. A single position difference can swing AP dramatically.
 
 **AP is a per-user metric.** To evaluate a system across all users, you need to aggregate AP values. That aggregation is called **Mean Average Precision (MAP)**.
 
