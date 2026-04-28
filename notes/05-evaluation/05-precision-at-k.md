@@ -62,10 +62,10 @@ K is not arbitrary, it should reflect the actual interface the system serves:
 
 | Interface            | Typical K |
 | -------------------- | --------- |
-| Home screen row      | 5–10      |
-| Search results page  | 10–20     |
+| Home screen row      | 5-10      |
+| Search results page  | 10-20     |
 | Email digest         | 5         |
-| Candidate generation | 100–500   |
+| Candidate generation | 100-500   |
 | Full catalog ranking | 1000+     |
 
 In academic papers, K = 5, 10, and 20 are most common. Always report multiple K values - a model that wins at K=5 may lose at K=20, which tells something meaningful about where relevant items are concentrated in its ranked list.
@@ -78,13 +78,13 @@ Precision@K is better than raw Precision but it still has a significant blindspo
 
 **It treats all positions within K equally.**
 
-In the example above, a model that ranks relevant items at positions [1, 2, 3] scores the same Precision@5 as one that ranks them at positions [3, 4, 5] — both have 3 relevant items in the top 5.
+In the example above, a model that ranks relevant items at positions [1, 2, 3] scores the same Precision@5 as one that ranks them at positions [3, 4, 5] - both have 3 relevant items in the top 5.
 
 But these two models are not equal. The first model surfaces relevant items immediately. The second buries them. Users of the first model are much more likely to find something useful before giving up.
 
 ```bash
-Model A: [r, r, r, nr, nr]  →  Precision@5 = 3/5 = 0.6
-Model B: [nr, nr, r, r, r]  →  Precision@5 = 3/5 = 0.6
+Model A: [r, r, r, nr, nr]  Precision@5 = 3/5 = 0.6
+Model B: [nr, nr, r, r, r]  Precision@5 = 3/5 = 0.6
 
 Same score. Very different user experience.
 ```
