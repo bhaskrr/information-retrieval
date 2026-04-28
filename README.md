@@ -117,6 +117,10 @@ This repository follows a structured learning roadmap, progressing from foundati
 - Query Reformulation
 - Conversational RAG
 
+### Phase 10 - Query Processing
+
+- Query Tokenization
+
 ---
 
 ## Glossary
