@@ -120,6 +120,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 ### Phase 10 - Query Processing
 
 - Query Tokenization
+- Query Normalization
 
 ---
 
