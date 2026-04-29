@@ -57,3 +57,4 @@
 | 26/04/2026 | Advanced           | advanced/07               |
 | 27/04/2026 | Advanced           | advanced/08               |
 | 28/04/2026 | Query Processing   | query-processing/01       |
+| 29/04/2026 | Query Processing   | query-processing/02       |
