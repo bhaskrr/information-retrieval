@@ -122,6 +122,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 - Query Tokenization
 - Query Normalization
 - Stopword Handling
+- Query Segmentation
 
 ---
 
