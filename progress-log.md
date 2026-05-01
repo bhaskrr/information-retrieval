@@ -59,3 +59,4 @@
 | 28/04/2026 | Query Processing   | query-processing/01       |
 | 29/04/2026 | Query Processing   | query-processing/02       |
 | 30/04/2026 | Query Processing   | query-processing/03       |
+| 01/05/2026 | Query Processing   | query-processing/04       |
