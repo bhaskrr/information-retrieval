@@ -124,6 +124,10 @@ This repository follows a structured learning roadmap, progressing from foundati
 - Stopword Handling
 - Query Segmentation
 
+### Phase 11 - Practical Systems
+
+- Choosing a Retrieval Stack
+
 ---
 
 ## Glossary
