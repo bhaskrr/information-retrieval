@@ -61,3 +61,4 @@
 | 30/04/2026 | Query Processing   | query-processing/03       |
 | 01/05/2026 | Query Processing   | query-processing/04       |
 | 02/05/2026 | Practical Systems  | practical-systems/01      |
+| 03/05/2026 | Practical Systems  | practical-systems/02      |
