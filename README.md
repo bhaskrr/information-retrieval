@@ -127,6 +127,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 ### Phase 11 - Practical Systems
 
 - Choosing a Retrieval Stack
+- Elasticsearch for IR
 
 ---
 
