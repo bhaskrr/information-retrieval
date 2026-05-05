@@ -129,6 +129,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 - Choosing a Retrieval Stack
 - Elasticsearch for IR
 - Vector Databases
+- Monitoring Retrieval Systems
 
 ---
 
