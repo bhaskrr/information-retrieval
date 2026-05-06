@@ -110,6 +110,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 - Onnx and Runtime Optimization
 - Caching and Batching
 - Approximate Nearest Neighboour Search
+- Flash Attention
 
 ### Phase 9 - Conversational IR
 
