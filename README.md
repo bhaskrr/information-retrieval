@@ -132,6 +132,10 @@ This repository follows a structured learning roadmap, progressing from foundati
 - Vector Databases
 - Monitoring Retrieval Systems
 
+### Phase 12 - Multimodal IR
+
+- CLIP and Image Retrieval
+
 ---
 
 ## Glossary
