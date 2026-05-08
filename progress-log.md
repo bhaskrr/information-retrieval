@@ -66,3 +66,4 @@
 | 05/05/2026 | Practical Systems  | practical-systems/04      |
 | 06/05/2026 | Efficiency         | efficiency/08             |
 | 07/05/2026 | Multimodal IR      | multimodal-ir/01          |
+| 08/05/2026 | Multimodal IR      | multimodal-ir/02          |
