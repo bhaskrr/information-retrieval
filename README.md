@@ -135,6 +135,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 ### Phase 12 - Multimodal IR
 
 - CLIP and Image Retrieval
+- Multimodal Embeddings
 
 ---
 
