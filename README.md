@@ -136,6 +136,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 
 - CLIP and Image Retrieval
 - Multimodal Embeddings
+- Multimodal RAG
 
 ---
 
