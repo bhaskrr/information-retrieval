@@ -138,6 +138,10 @@ This repository follows a structured learning roadmap, progressing from foundati
 - Multimodal Embeddings
 - Multimodal RAG
 
+### Phase 13 - Domain Adaptation
+
+- Why Domain Adaptation
+
 ---
 
 ## Glossary
