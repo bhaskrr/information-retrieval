@@ -69,3 +69,4 @@
 | 08/05/2026 | Multimodal IR      | multimodal-ir/02          |
 | 09/05/2026 | Multimodal IR      | multimodal-ir/03          |
 | 10/05/2026 | Domain Adaptation  | domain-adaptation/01      |
+| 11/05/2026 | Domain Adaptation  | domain-adaptation/02      |
