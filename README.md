@@ -141,6 +141,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 ### Phase 13 - Domain Adaptation
 
 - Why Domain Adaptation
+- Few-shot Retrieval
 
 ---
 
