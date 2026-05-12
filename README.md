@@ -142,6 +142,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 
 - Why Domain Adaptation
 - Few-shot Retrieval
+- Domain Specific Datasets
 
 ---
 
