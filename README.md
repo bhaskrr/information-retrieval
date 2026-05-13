@@ -144,6 +144,10 @@ This repository follows a structured learning roadmap, progressing from foundati
 - Few-shot Retrieval
 - Domain Specific Datasets
 
+### Phase 14 - Multilingual IR
+
+- Multilingual Embeddings
+
 ---
 
 ## Glossary
