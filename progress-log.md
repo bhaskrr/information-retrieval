@@ -72,3 +72,4 @@
 | 11/05/2026 | Domain Adaptation  | domain-adaptation/02      |
 | 12/05/2026 | DOmain Adaptation  | domain-adaptation/03      |
 | 13/05/2026 | Multilingual IR    | multilingual-ir/01        |
+| 14/05/2026 | Multilingual IR    | multilingual-ir/02        |
