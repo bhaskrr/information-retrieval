@@ -147,6 +147,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 ### Phase 14 - Multilingual IR
 
 - Multilingual Embeddings
+- Cross-lingual Retrieval
 
 ---
 
