@@ -148,6 +148,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 
 - Multilingual Embeddings
 - Cross-lingual Retrieval
+- Mr.TyDi and MKQA
 
 ---
 
