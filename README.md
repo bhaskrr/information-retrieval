@@ -89,6 +89,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 - Cross-encoders
 - SPLADE
 - Late Chunking
+- Matroyoshka Embeddings
 
 ### Phase 7 - Advanced
 
