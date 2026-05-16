@@ -21,18 +21,16 @@ without rebuilding the entire index? How do you monitor retrieval quality over t
 Elasticsearch handles the distributed systems complexity so you can focus on
 retrieval quality. Its core abstractions map directly to IR concepts:
 
-```
-IR concept              Elasticsearch abstraction
-──────────────────────────────────────────────────
-Document corpus         Index
-Document                Document (JSON)
-Inverted index          Lucene index segments
-BM25 scoring            Default similarity function
-Dense vectors           kNN field (dense_vector)
-Hybrid search           bool query + knn query combined
-Reranking               Script score or custom reranker
-Query pipeline          Ingest pipeline + search pipeline
-```
+| IR concept      | Elasticsearch abstraction         |
+| --------------- | --------------------------------- |
+| Document corpus | Index                             |
+| Document        | Document (JSON)                   |
+| Inverted index  | Lucene index segments             |
+| BM25 scoring    | Default similarity function       |
+| Dense vectors   | kNN field (dense_vector)          |
+| Hybrid search   | bool query + knn query combined   |
+| Reranking       | Script score or custom reranker   |
+| Query pipeline  | Ingest pipeline + search pipeline |
 
 ## Core Architecture
 
@@ -427,61 +425,40 @@ periodically. Appropriate for high-velocity update streams.
 
 ### Indexing performance
 
-```
-Setting                          Default    Recommended for bulk indexing
-──────────────────────────────────────────────────────────────────────────
-refresh_interval                 1s         -1 (disable during bulk, re-enable after)
-number_of_replicas               1          0 (disable during bulk, re-enable after)
-index.translog.durability        request    async (risk: lose data on crash)
-bulk chunk_size                  -          500 documents
-```
+| Setting                   | Default | Recommended for bulk indexing             |
+| ------------------------- | ------- | ----------------------------------------- |
+| refresh_interval          | 1s      | -1 (disable during bulk, re-enable after) |
+| number_of_replicas        | 1       | 0 (disable during bulk, re-enable after)  |
+| index.translog.durability | request | async (risk: lose data on crash)          |
+| bulk chunk_size           | -       | 500 documents                             |
 
 ### Query performance
 
-```
-Setting                          Guidance
-──────────────────────────────────────────────────────────────────────────
-knn.num_candidates               5-10 × k (higher = better recall, slower)
-result_window (max)              10,000 documents default
-search.max_buckets               Increase for aggregation-heavy queries
-query_cache                      Enable for repeated filter queries
-```
+| Setting             | Guidance                                  |
+| ------------------- | ----------------------------------------- |
+| knn.num_candidates  | 5-10 × k (higher = better recall, slower) |
+| result_window (max) | 10,000 documents default                  |
+| search.max_buckets  | Increase for aggregation-heavy queries    |
+| query_cache         | Enable for repeated filter queries        |
 
 ### Memory sizing
 
-```
-Component                Rule of thumb
-──────────────────────────────────────────────────────────────────────────
-JVM heap                 50% of available RAM, max 32GB
-Filesystem cache         Remaining 50% - critical for performance
-Dense vector index       ~4 bytes × dims × doc_count for HNSW
-                         Example: 384 dims × 1M docs = ~1.5GB
-```
+| Component          | Rule of thumb                                                              |
+| ------------------ | -------------------------------------------------------------------------- |
+| JVM heap           | 50% of available RAM, max 32GB                                             |
+| Filesystem cache   | Remaining 50% - critical for performance                                   |
+| Dense vector index | ~4 bytes × dims × doc_count for HNSW, Example: 384 dims × 1M docs = ~1.5GB |
 
 ## Common Pitfalls
 
-```
-Pitfall                           Symptom                    Fix
-────────────────────────────────────────────────────────────────────────
-Over-sharding                     Slow queries on small       1-3 shards for
-                                  index, high CPU             < 50GB index
-
-Wrong analyzer at query time      Stemmed index, unstemmed    Use same analyzer
-                                  query → misses              in mapping + query
-
-Mapping explosion                 Dynamic mapping creates      Use explicit mapping,
-                                  thousands of fields         disable dynamic on
-                                                              unknown fields
-
-No refresh before searching       Documents not visible       Add refresh=True
-(bulk index)                      after indexing              after bulk or wait 1s
-
-kNN with heavy filters            Filter applied after kNN    Use pre-filter for
-                                  → poor results              restrictive filters
-
-Dense vectors not normalized      kNN cosine similarity       Normalize embeddings
-                                  incorrect                   before indexing
-```
+| Pitfall                                  | Symptom                                     | Fix                                                     |
+| ---------------------------------------- | ------------------------------------------- | ------------------------------------------------------- |
+| Over-sharding                            | Slow queries on small index, high cpu       | 1-3 shards for < 50GB index                             |
+| Wrong analyzer at query time             | Stemmed index, unstemmed query -> misses    | Use same analyzer in mapping + query                    |
+| Mapping explosion                        | Dynamic mapping creates thousands of fields | Use explicit mapping, disable dynamic on unknown fields |
+| No refresh before searching (bulk index) | Documents not visible after indexing        | Add refresh=True after bulk or wait 1s                  |
+| kNN with heavy filters                   | Filter applied after kNN -> poor results    | Use pre-filter for restrictive filters                  |
+| Dense vectors not normalized             | kNN closine similarity incorrect            | Normalize embeddings before indexing                    |
 
 ## Where This Fits in the Progression
 
