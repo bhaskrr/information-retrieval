@@ -75,3 +75,4 @@
 | 14/05/2026 | Multilingual IR    | multilingual-ir/02        |
 | 15/05/2026 | Multilingual IR    | multilingual-ir/03        |
 | 16/05/2026 | Neural IR          | neural-ir/08              |
+| 17/05/2026 | Neural IR          | neural-ir/09              |
