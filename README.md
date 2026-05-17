@@ -90,6 +90,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 - SPLADE
 - Late Chunking
 - Matroyoshka Embeddings
+- Sentence Transformers Training
 
 ### Phase 7 - Advanced
 
