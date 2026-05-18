@@ -152,6 +152,10 @@ This repository follows a structured learning roadmap, progressing from foundati
 - Cross-lingual Retrieval
 - Mr.TyDi and MKQA
 
+### Phase 15 - Learned Sparse Retrieval
+
+- Beyond BM25
+
 ---
 
 ## Glossary
