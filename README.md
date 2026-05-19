@@ -155,6 +155,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 ### Phase 15 - Learned Sparse Retrieval
 
 - Beyond BM25
+- SPLADE deep dive
 
 ---
 
