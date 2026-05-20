@@ -78,3 +78,4 @@
 | 17/05/2026 | Neural IR          | neural-ir/09              |
 | 18/05/2026 | Learned Sparse IR  | learned-sparse/01         |
 | 19/05/2026 | Learned Sparse IR  | learned-sparse/02         |
+| 20/05/2026 | Learned Sparse IR  | learned-sparse/03         |
