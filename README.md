@@ -157,6 +157,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 - Beyond BM25
 - SPLADE deep dive
 - UniCOIL and DeepCT
+- Sparse - Dense Tradeoffs
 
 ---
 
