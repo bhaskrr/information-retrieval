@@ -159,6 +159,10 @@ This repository follows a structured learning roadmap, progressing from foundati
 - UniCOIL and DeepCT
 - Sparse - Dense Tradeoffs
 
+### Phase 16 - Reranking Deep Dive
+
+- Two Stage Retrieval Architecture
+
 ---
 
 ## Glossary
