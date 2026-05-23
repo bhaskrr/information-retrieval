@@ -162,6 +162,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 ### Phase 16 - Reranking Deep Dive
 
 - Two Stage Retrieval Architecture
+- Cross-Encoder Training
 
 ---
 
