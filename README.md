@@ -163,6 +163,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 
 - Two Stage Retrieval Architecture
 - Cross-Encoder Training
+- Listwise Reranking
 
 ---
 
