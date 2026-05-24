@@ -82,3 +82,4 @@
 | 21/06/2026 | Learned Sparse IR  | learned-sparse/04         |
 | 22/06/2026 | Reranking Deep Dive| rdd/01                    |
 | 23/06/2026 | Reranking Deep DIve| rdd/02                    |
+| 24/06/2026 | Reranking Deep Dive| rdd/03                    |
