@@ -165,6 +165,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 - Cross-Encoder Training
 - Listwise Reranking
 - LLM as Reranker
+- Reranking Latency Optimization
 
 ---
 
