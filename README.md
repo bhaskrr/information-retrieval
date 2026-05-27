@@ -167,6 +167,10 @@ This repository follows a structured learning roadmap, progressing from foundati
 - LLM as Reranker
 - Reranking Latency Optimization
 
+### Phase 17 - Advanced Evaluation
+
+- Statistical Significance Testing
+
 ---
 
 ## Glossary
