@@ -87,3 +87,4 @@
 | 26/05/2026 | Reranking Deep Dive| rdd/05                    |
 | 27/05/2026 | Evaluation Advanced| ea/01                     |
 | 28/05/2026 | Evaluation Advanced| ea/02                     |
+| 30/05/2026 | Evaluation Advanced| ea/03                     |
