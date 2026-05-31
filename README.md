@@ -172,6 +172,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 - Statistical Significance Testing
 - Online Evaluation A/B Testing
 - Evaluation without Labels
+- Recall Oriented Evaluation
 
 ---
 
