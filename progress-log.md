@@ -89,3 +89,4 @@
 | 28/05/2026 | Evaluation Advanced| ea/02                     |
 | 30/05/2026 | Evaluation Advanced| ea/03                     |
 | 31/05/2026 | Evaluation Advanced| ea/04                     |
+| 01/06/2026 | Evaluation Advanced| ea/05                     |
