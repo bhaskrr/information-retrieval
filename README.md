@@ -173,6 +173,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 - Online Evaluation A/B Testing
 - Evaluation without Labels
 - Recall Oriented Evaluation
+- Human Evaluation Protocols
 
 ---
 
