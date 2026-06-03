@@ -175,6 +175,10 @@ This repository follows a structured learning roadmap, progressing from foundati
 - Recall Oriented Evaluation
 - Human Evaluation Protocols
 
+### Phase 18 - Dense Retrieval Training
+
+- Contrastive Learning for Retrieval
+
 ---
 
 ## Glossary
