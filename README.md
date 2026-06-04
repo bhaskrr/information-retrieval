@@ -178,6 +178,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 ### Phase 18 - Dense Retrieval Training
 
 - Contrastive Learning for Retrieval
+- Hard Negative Mining Strategies
 
 ---
 
