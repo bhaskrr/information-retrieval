@@ -92,3 +92,4 @@
 | 01/06/2026 | Evaluation Advanced| ea/05                     |
 | 02/06/2026 | Dense Retrieval    | drt/01                    |
 | 03/06/2025 | Dense Retrieval    | drt/02                    |
+| 04/06/2026 | Dense Retrieval    | drt/03                    |
