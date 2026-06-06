@@ -180,6 +180,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 - Contrastive Learning for Retrieval
 - Hard Negative Mining Strategies
 - Knowledge Distillation for Retrieval
+- Batch Size and Temperature
 
 ---
 
