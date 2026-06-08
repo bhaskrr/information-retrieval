@@ -94,3 +94,4 @@
 | 03/06/2025 | Dense Retrieval    | drt/02                    |
 | 04/06/2026 | Dense Retrieval    | drt/03                    |
 | 05/06/2026 | Dense Retrieval    | drt/04                    |
+| 07/06/2026 | Dense Retrieval    | drt/05                    |
