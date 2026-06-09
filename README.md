@@ -183,6 +183,10 @@ This repository follows a structured learning roadmap, progressing from foundati
 - Batch Size and Temperature
 - Continual Learning for Retrieval
 
+### Phase 19 - Passage Retrieval and Chunking
+
+- Why Chunking Matters
+
 ---
 
 ## Glossary
