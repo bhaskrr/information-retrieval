@@ -186,6 +186,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 ### Phase 19 - Passage Retrieval and Chunking
 
 - Why Chunking Matters
+- Fixed Size Chunking
 
 ---
 
