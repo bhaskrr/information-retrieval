@@ -187,6 +187,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 
 - Why Chunking Matters
 - Fixed Size Chunking
+- Semantic Chunking
 
 ---
 
