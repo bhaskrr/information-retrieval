@@ -97,3 +97,4 @@
 | 07/06/2026 | Dense Retrieval    | drt/05                    |
 | 08/06/2026 | PRAC               | prac/01                   |
 | 09/06/2026 | PRAC               | prac/02                   |
+| 14/06/2026 | PRAC               | prac/03                   |
