@@ -189,6 +189,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 - Fixed Size Chunking
 - Semantic Chunking
 - Recursive Chunking
+- Document Aware Chunking
 
 ---
 
