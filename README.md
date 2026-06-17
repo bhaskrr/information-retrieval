@@ -190,6 +190,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 - Semantic Chunking
 - Recursive Chunking
 - Document Aware Chunking
+- Late Chunking vs Early Chunking
 
 ---
 
