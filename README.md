@@ -193,6 +193,10 @@ This repository follows a structured learning roadmap, progressing from foundati
 - Late Chunking vs Early Chunking
 - Chunking Evaluation
 
+### Phase 20 - Graph Based Retrieval
+
+- Why Graphs for Retrieval
+
 ---
 
 ## Glossary
