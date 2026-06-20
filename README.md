@@ -196,6 +196,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 ### Phase 20 - Graph Based Retrieval
 
 - Why Graphs for Retrieval
+- Graph Neural Networks for IR
 
 ---
 
