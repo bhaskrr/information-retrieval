@@ -197,6 +197,7 @@ This repository follows a structured learning roadmap, progressing from foundati
 
 - Why Graphs for Retrieval
 - Graph Neural Networks for IR
+- Knowledge Graph Retrieval
 
 ---
 
